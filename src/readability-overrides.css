@@ -194,13 +194,20 @@
   }
 
   .page-top .bento-comic-home .hero-tool-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2px;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 4px 5px;
   }
 
   .page-top .bento-comic-home .hero-tool-item {
-    grid-template-columns: 76px minmax(0, 1fr);
-    gap: 5px;
+    display: contents;
+  }
+
+  .page-top .bento-comic-home .hero-tool-item .hero-tool-name {
+    grid-column: 1;
+  }
+
+  .page-top .bento-comic-home .hero-tool-item .hero-tool-detail {
+    grid-column: 2;
   }
 
   .overview-project-identity span {

@@ -107,21 +107,21 @@
   .page-top .home-toolbar-person {
     position: relative;
     z-index: 2;
-    padding-right: 126px;
+    padding-right: 138px;
   }
 
   .page-top .home-toolbar-character {
     position: absolute;
-    top: 1px;
-    right: 12px;
+    top: 0;
+    right: 6px;
     z-index: 1;
     display: block;
-    width: 132px;
-    height: 76px;
+    width: 150px;
+    height: 84px;
     max-width: none;
     object-fit: contain;
-    object-position: center top;
-    opacity: .9;
+    object-position: right top;
+    opacity: .96;
     filter: drop-shadow(0 4px 5px rgba(47, 41, 48, .18));
     pointer-events: none;
   }
@@ -148,6 +148,12 @@
     z-index: 2;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 5px;
+  }
+
+  /* Keep the toolbar's right side free for the enlarged character artwork. */
+  .page-top .home-toolbar-nav {
+    width: 64%;
+    margin-right: auto;
   }
 
   .page-top .home-toolbar-nav button,
@@ -180,7 +186,7 @@
   .page-top .bento-comic-home .bento-intro-grid,
   .page-top .bento-comic-home .bento-character-card {
     height: auto;
-    min-height: 570px;
+    min-height: 650px;
   }
 
   .page-top .bento-comic-home .bento-character-copy.vertical-center,
@@ -520,6 +526,31 @@
     height: auto;
   }
 
+  /* Evidence pairs need three natural rows: image, image, document note. */
+  .portfolio-case-study .case-detail-slide .case-generic-evidence.case-evidence-pair {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 12px;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .portfolio-case-study .case-detail-slide .case-generic-evidence.case-evidence-pair .case-evidence-frame {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+
+  .portfolio-case-study .case-detail-slide .case-generic-evidence.case-evidence-pair .case-document-link {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
   .case-document-link {
     align-items: stretch;
     flex-direction: column;
@@ -828,7 +859,7 @@
 
   .page-top .bento-comic-home .bento-intro-grid,
   .page-top .bento-comic-home .bento-character-card {
-    min-height: 610px;
+    min-height: 650px;
   }
 
   .page-top .bento-comic-home .bento-character-copy h1 {
