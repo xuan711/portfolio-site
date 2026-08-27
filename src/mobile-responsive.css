@@ -3,6 +3,35 @@
   display: none;
 }
 
+@media (min-width: 761px) {
+  .page-top .bento-comic-home .bento-intro-grid {
+    height: auto !important;
+    min-height: 348px;
+  }
+
+  .page-top .bento-comic-home .bento-character-card {
+    box-sizing: border-box;
+    height: auto !important;
+    min-height: 348px;
+    padding: 22px 24px 104px;
+    overflow: hidden;
+  }
+
+  .page-top .bento-comic-home .bento-character-copy.vertical-center,
+  .page-top .bento-comic-home .bento-character-copy.vertical-center.width-standard {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 58%;
+    transform: none;
+  }
+
+  .page-top .hero-explore-button {
+    left: 24px;
+    bottom: 8px;
+  }
+}
+
 @media (max-width: 760px) {
   :root {
     --mobile-page-pad: 14px;

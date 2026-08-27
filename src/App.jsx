@@ -257,16 +257,43 @@ const shanhaiSystemPillars = [
 ]
 
 const defaultHeroContent = {
-  eyebrow: '2027届系统策划 · 项目落地能力',
+  eyebrow: '系统策划 · 能力概览',
   title: '将想法落地成文档，\n并跟进制作与实现。',
-  capability: '拆解玩家目标、规则、流程与异常边界；完成新手引导、副本、关卡与 Boss 设计',
-  stack: '输出策划案、流程图、界面原型和配置表；对接开发、数值、UI及美术，跟进测试、验收与迭代',
-  project: 'Figma：界面原型与交互标注 · ioDraw：业务与状态流程图 · XMind：系统结构与需求拆解\nOffice：策划案、配置表与数据整理 · Codex：策划文档与数值配置提效 · Unity/UE：基础玩法原型与交互 Demo',
+  capability: '从玩家需求出发，将设计意图拆解为清晰的规则、流程与体验，并推动方案完成制作、验收与迭代。',
+  stack: '输出策划案、流程图、界面原型和配置表；对接开发、数值、UI及美术，跟进制作、实机测试和版本调整。',
+  project: 'Figma：界面原型与交互标注 · ioDraw：流程图 · XMind：系统结构图\nOffice：策划案与配置表 · Codex：AI 定制化提效 · Unity/UE：玩法原型与 Demo',
   align: 'left',
   width: 'standard',
   vertical: 'center',
   fontScale: 1.15,
 }
+
+const portfolioEditorEnabled = import.meta.env.DEV
+
+const defaultPortfolioEdits = {
+  'project-overview:systems': {
+    title: { scale: 1.3 },
+    intro: { scale: 1.05 },
+    'theme-title': { scale: 1.3 },
+    'theme-summary': { scale: 1.05 },
+    ...Object.fromEntries(Array.from({ length: 6 }, (_, index) => [`pillar-${index}-title`, { scale: 1.3 }])),
+    ...Object.fromEntries(Array.from({ length: 6 }, (_, index) => [`pillar-${index}-summary`, { scale: 1.05 }])),
+  },
+}
+
+const mergePortfolioEdits = (savedEdits = {}) => Object.fromEntries(
+  [...new Set([...Object.keys(defaultPortfolioEdits), ...Object.keys(savedEdits)])].map((moduleId) => {
+    const defaultRows = defaultPortfolioEdits[moduleId] || {}
+    const savedRows = savedEdits[moduleId] || {}
+    const mergedRows = Object.fromEntries(
+      [...new Set([...Object.keys(defaultRows), ...Object.keys(savedRows)])].map((rowId) => [
+        rowId,
+        { ...(defaultRows[rowId] || {}), ...(savedRows[rowId] || {}) },
+      ]),
+    )
+    return [moduleId, mergedRows]
+  }),
+)
 
 const shanhaiGameplayShowcase = [
   { src: assetUrl('/images/core-gameplay-demon.png'), label: '降妖伏魔' },
@@ -1101,6 +1128,8 @@ const editableRowProps = (key, label, defaultText) => ({
 })
 
 function ModuleEditButton({ moduleId, label, onOpen }) {
+  if (!portfolioEditorEnabled) return null
+
   return (
     <button
       type="button"
@@ -1115,7 +1144,7 @@ function ModuleEditButton({ moduleId, label, onOpen }) {
 }
 
 function PortfolioModuleEditor({ editor, edits, onChange, onReset, onClose }) {
-  if (!editor || typeof document === 'undefined') return null
+  if (!portfolioEditorEnabled || !editor || typeof document === 'undefined') return null
 
   const panel = (
     <>
@@ -1321,11 +1350,12 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
 function PortfolioCaseStudy({ onPlay, onOpenImage, isActive }) {
   const [selectedProjectId, setSelectedProjectId] = useState('project-overview')
   const [portfolioEdits, setPortfolioEdits] = useState(() => {
+    if (!portfolioEditorEnabled) return defaultPortfolioEdits
     try {
       const saved = window.localStorage.getItem('kz-portfolio-module-content-v1')
-      return saved ? JSON.parse(saved) : {}
+      return saved ? mergePortfolioEdits(JSON.parse(saved)) : defaultPortfolioEdits
     } catch {
-      return {}
+      return defaultPortfolioEdits
     }
   })
   const [moduleEditor, setModuleEditor] = useState(null)
@@ -1343,6 +1373,7 @@ function PortfolioCaseStudy({ onPlay, onOpenImage, isActive }) {
   const sectionDomId = (pageId) => `case-${selectedProjectId}-${pageId}`
 
   useEffect(() => {
+    if (!portfolioEditorEnabled) return
     window.localStorage.setItem('kz-portfolio-module-content-v1', JSON.stringify(portfolioEdits))
   }, [portfolioEdits])
 
@@ -1607,6 +1638,7 @@ function App() {
   const [wechatOpen, setWechatOpen] = useState(false)
   const [heroEditorOpen, setHeroEditorOpen] = useState(false)
   const [heroContent, setHeroContent] = useState(() => {
+    if (!portfolioEditorEnabled) return defaultHeroContent
     try {
       const saved = window.localStorage.getItem('kz-hero-content-v4')
       return saved ? { ...defaultHeroContent, ...JSON.parse(saved) } : defaultHeroContent
@@ -1626,6 +1658,7 @@ function App() {
   }, [lightbox])
 
   useEffect(() => {
+    if (!portfolioEditorEnabled) return
     window.localStorage.setItem('kz-hero-content-v4', JSON.stringify(heroContent))
   }, [heroContent])
 
@@ -2056,7 +2089,7 @@ function App() {
                     <span><b>开始探索</b><small>查看项目完整作品集</small></span><ArrowRight />
                   </button>
                   <img loading="lazy" decoding="async" className="bento-card-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
-                  <button className="bento-hero-editor-toggle" type="button" onClick={() => setHeroEditorOpen(true)} aria-label="编辑首页主视觉文案" title="编辑首页主视觉文案"><Settings2 /><span>编辑内容</span></button>
+                  {portfolioEditorEnabled && <button className="bento-hero-editor-toggle" type="button" onClick={() => setHeroEditorOpen(true)} aria-label="编辑首页主视觉文案" title="编辑首页主视觉文案"><Settings2 /><span>编辑内容</span></button>}
                 </article>
               </div>
 
@@ -2096,7 +2129,7 @@ function App() {
               </section>
             </div>
 
-            {heroEditorOpen && (
+            {portfolioEditorEnabled && heroEditorOpen && (
               <aside className="bento-hero-editor" role="dialog" aria-modal="true" aria-label="蓝色主框编辑器">
                 <header><div><span>LIVE EDITOR</span><h2>编辑蓝色主框</h2></div><button type="button" onClick={() => setHeroEditorOpen(false)} aria-label="关闭编辑器"><X /></button></header>
                 <label><span>顶部标签</span><input value={heroContent.eyebrow} onChange={(event) => updateHeroContent('eyebrow', event.target.value)} /></label>
