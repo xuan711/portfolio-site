@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <filter id="vertical-fibre" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.27 0.011" numOctaves="3" seed="41" stitchTiles="stitch" result="fibre-noise"/>
+    <feColorMatrix in="fibre-noise" type="matrix" values="
+      0 0 0 0 0.34
+      0 0 0 0 0.30
+      0 0 0 0 0.27
+      0 0 0 .16 0"/>
+  </filter>
+  <rect width="512" height="512" fill="#6b5e54" filter="url(#vertical-fibre)" opacity="0.3"/>
+  <g fill="#514a44" opacity="0.16">
+    <circle cx="27" cy="91" r="0.7"/>
+    <circle cx="83" cy="376" r="0.45"/>
+    <circle cx="137" cy="208" r="0.8"/>
+    <circle cx="201" cy="44" r="0.5"/>
+    <circle cx="247" cy="449" r="0.65"/>
+    <circle cx="294" cy="156" r="0.42"/>
+    <circle cx="351" cy="316" r="0.9"/>
+    <circle cx="407" cy="72" r="0.48"/>
+    <circle cx="463" cy="412" r="0.72"/>
+    <circle cx="492" cy="247" r="0.4"/>
+  </g>
+  <g fill="none" stroke="#71645a" stroke-width="0.46" stroke-linecap="round" opacity="0.15">
+    <path d="M41 19C39 82 45 131 42 199C40 248 43 293 40 356"/>
+    <path d="M116 78C113 131 119 179 115 234C112 272 116 318 113 371"/>
+    <path d="M184 7C188 54 181 103 185 151C188 198 182 246 184 301"/>
+    <path d="M263 126C260 171 265 217 262 270C260 314 264 359 261 411"/>
+    <path d="M329 43C326 89 332 142 328 189C325 240 330 288 327 337"/>
+    <path d="M394 154C398 202 391 245 395 296C399 345 392 391 395 458"/>
+    <path d="M472 30C468 79 474 128 470 178C467 220 473 272 469 321"/>
+  </g>
+</svg>

@@ -1,0 +1,1761 @@
+/* 作品页尺寸收束与逐模块编辑器。编辑控件只在用户主动点击后占据视觉层。 */
+.portfolio-case-study [data-portfolio-module] {
+  position: relative;
+}
+
+/* Final project-overview hierarchy pass */
+.portfolio-case-study .project-overview-actions > * {
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.portfolio-case-study .project-overview-actions .overview-ppt-entry {
+  min-width: 132px;
+  color: #f6dfaa;
+  background: rgba(28, 58, 74, .9);
+  border: 1px solid rgba(246, 223, 170, .72);
+  box-shadow: 3px 4px 0 rgba(73, 38, 50, .28);
+}
+
+.portfolio-case-study .project-overview-actions .overview-ppt-entry:hover,
+.portfolio-case-study .project-overview-actions .overview-ppt-entry:focus-visible {
+  transform: translateY(-2px);
+  color: #fff7df;
+  background: #294e63;
+  border-color: #f6dfaa;
+  box-shadow: 4px 6px 0 rgba(73, 38, 50, .32);
+}
+
+.portfolio-case-study .project-overview-actions .overview-cases-entry {
+  min-width: 172px;
+  box-shadow: 4px 5px 0 rgba(125, 33, 56, .68);
+}
+
+.portfolio-case-study .project-overview-case-scope {
+  max-width: 760px;
+  margin-top: 16px;
+  padding-top: 12px;
+}
+
+.portfolio-case-study .project-overview-case-scope > p {
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.portfolio-case-study .project-overview-case-scope ol {
+  gap: 10px;
+}
+
+.portfolio-case-study .project-overview-case-scope li {
+  --case-accent: #ffd66f;
+  min-height: 62px;
+  padding: 10px 12px;
+  background: rgba(23, 58, 75, .34);
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-top: 3px solid var(--case-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.portfolio-case-study .project-overview-case-scope li:nth-child(2) {
+  --case-accent: #8fd1d3;
+}
+
+.portfolio-case-study .project-overview-case-scope li:nth-child(3) {
+  --case-accent: #f2a2ad;
+}
+
+.portfolio-case-study .project-overview-case-scope li b {
+  color: var(--case-accent);
+  font-size: 19px;
+}
+
+.portfolio-case-study .project-overview-case-scope li span {
+  color: rgba(255, 255, 255, .72);
+  font-size: 10px;
+}
+
+.portfolio-case-study .project-overview-case-scope li strong {
+  font-size: 12px;
+}
+
+.portfolio-case-study .project-overview-systems > header .case-kicker,
+.portfolio-case-study .project-overview-cases > header .case-kicker {
+  color: #9a611a;
+  text-shadow: none;
+}
+
+.portfolio-case-study .project-overview-systems > header h2,
+.portfolio-case-study .project-overview-cases > header h2 {
+  color: #2f2930;
+}
+
+.portfolio-case-study .project-system-map {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.portfolio-case-study .project-system-map section {
+  --pillar-accent: #b58a2c;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-rows: auto auto auto 1fr;
+  gap: 4px 12px;
+  min-height: 170px;
+  padding: 9px;
+  border: 1px solid rgba(47, 41, 48, .28);
+  border-top: 4px solid var(--pillar-accent);
+  background: rgba(255, 252, 245, .95);
+  box-shadow: 4px 4px 0 rgba(93, 50, 57, .08);
+}
+
+.portfolio-case-study .project-system-map .system-pillar--gold { --pillar-accent: #b58a2c; }
+.portfolio-case-study .project-system-map .system-pillar--coral { --pillar-accent: #df5363; }
+.portfolio-case-study .project-system-map .system-pillar--blue { --pillar-accent: #5f8fa7; }
+.portfolio-case-study .project-system-map .system-pillar--crimson { --pillar-accent: #97203f; }
+.portfolio-case-study .project-system-map .system-pillar--teal { --pillar-accent: #3b7c70; }
+.portfolio-case-study .project-system-map .system-pillar--plum { --pillar-accent: #7b5573; }
+
+.portfolio-case-study .project-system-map section > button {
+  grid-column: 1;
+  grid-row: 1 / 5;
+  width: 100%;
+  min-height: 150px;
+  overflow: hidden;
+  border: 0;
+  background: #e8e0d4;
+  cursor: zoom-in;
+}
+
+.portfolio-case-study .project-system-map section > button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-case-study .project-system-map section > small {
+  grid-column: 2;
+  color: var(--pillar-accent);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.portfolio-case-study .project-system-map h3 {
+  grid-column: 2;
+  color: #2f2930;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.portfolio-case-study .project-system-map p {
+  grid-column: 2;
+  margin: 0;
+  color: #6b6662;
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list {
+  grid-column: 2;
+  display: grid;
+  gap: 4px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list li {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 7px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(47, 41, 48, .1);
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list b {
+  color: var(--pillar-accent);
+  font-size: 10px;
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list span {
+  color: #5f5b58;
+  font-size: 9.5px;
+  line-height: 1.35;
+}
+
+.portfolio-case-study .project-overview-case-grid button > b {
+  justify-self: start;
+  width: auto;
+  min-height: 0;
+  margin: 12px 12px 0;
+  padding: 7px 10px;
+  color: #244b60;
+  background: rgba(56, 89, 109, .08);
+  border: 1px solid rgba(56, 89, 109, .28);
+  font-size: 11px;
+}
+
+@media (min-width: 1181px) {
+  .portfolio-case-study .project-overview-systems {
+    height: auto;
+    min-height: 700px;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-case-study .project-system-map {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-case-study .project-overview-case-scope ol {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-case-study .project-system-map section {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+}
+
+/* 六类系统封面：使用完整渲染图，统一宽幅比例，并把分类标题置于画面中心。 */
+.portfolio-case-study .project-system-map section {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto auto;
+  gap: 6px;
+  min-height: 0;
+  padding: 10px;
+}
+
+.portfolio-case-study .project-system-map section > button {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+.portfolio-case-study .project-system-map section > small {
+  position: absolute;
+  z-index: 7;
+  top: 18px;
+  right: 18px;
+  grid-column: 1;
+  padding: 4px 7px;
+  color: #fff;
+  background: rgba(18, 28, 34, .68);
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 999px;
+  font-size: 10px;
+  backdrop-filter: blur(6px);
+}
+
+.portfolio-case-study .project-system-map h3,
+.portfolio-case-study .project-system-map p,
+.portfolio-case-study .project-system-map .system-pillar-list {
+  grid-column: 1;
+}
+
+.portfolio-case-study .project-system-map h3 {
+  margin: 4px 0 0;
+}
+
+.portfolio-case-study .system-pillar-visual::after {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  content: '';
+  background: linear-gradient(180deg, rgba(8,18,24,.05), rgba(8,18,24,.18) 54%, rgba(8,18,24,.32));
+  pointer-events: none;
+}
+
+.portfolio-case-study .system-pillar-visual-pane img {
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  filter: brightness(.92) saturate(1.04) contrast(1.04);
+}
+
+.portfolio-case-study .system-pillar-visual-label {
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  max-width: calc(100% - 36px);
+  padding: 9px 16px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: color-mix(in srgb, var(--pillar-accent) 58%, rgba(12, 27, 34, .84));
+  border: 1px solid rgba(255,255,255,.7);
+  border-left-width: 1px;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(4,12,16,.38);
+  font-size: 15px;
+  letter-spacing: .08em;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,.58);
+  backdrop-filter: blur(7px);
+}
+
+@media (min-width: 761px) {
+  .portfolio-case-study [data-portfolio-module="beijun:flow"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="beijun:pacing"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="beijun:proof"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="tutorial:intent"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="dungeon:intent"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="dungeon:proof"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-case-study .project-system-map section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-case-study .project-system-map section > button {
+    height: auto;
+    min-height: 0;
+  }
+
+  .portfolio-case-study .system-pillar-visual-label {
+    font-size: 13px;
+  }
+}
+
+/* 最终说明栏：固定覆盖在证据图底部，保证标题与解释始终可读。 */
+.portfolio-case-study .case-evidence-frame > span {
+  position: absolute;
+  z-index: 8;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  min-height: 64px;
+  padding: 9px 12px;
+  color: #2f2930;
+  background: rgba(248, 243, 234, .94);
+  border-top: 1px solid rgba(47, 41, 48, .22);
+  box-shadow: 0 -8px 20px rgba(35, 29, 32, .08);
+  backdrop-filter: blur(8px);
+}
+
+.portfolio-case-study .case-evidence-copy small {
+  margin-top: 3px;
+  color: rgba(47, 41, 48, .68);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+/* 证据图保留独立说明区，避免图片高度把标题和描述挤出框外。 */
+.portfolio-case-study .case-evidence-frame img {
+  flex: 1 1 0;
+  height: auto;
+  min-height: 0;
+}
+
+.portfolio-case-study .case-evidence-frame > span {
+  flex: 0 0 auto;
+  min-height: 62px;
+  padding: 8px 7px 2px;
+}
+
+.portfolio-case-study .case-evidence-copy small {
+  display: block;
+}
+
+/* 流程与空间规划：放大双图中的有效内容，减少源图留白造成的缩小感。 */
+@media (min-width: 761px) {
+  [data-portfolio-module="beijun:flow"] .case-generic-evidence {
+    height: 245px;
+    max-height: 245px;
+  }
+
+  [data-portfolio-module="beijun:flow"] .case-evidence-frame img {
+    object-position: center;
+    transform: scale(1.28);
+    transform-origin: center;
+  }
+
+  /* NEXT CASE 的案例名保持视觉居中，标签单独固定在模块上方。 */
+  .portfolio-case-study .case-next-project {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 36px;
+    min-height: 142px;
+    padding: 40px 34px 24px;
+  }
+
+  .portfolio-case-study .case-next-project > div {
+    grid-column: 1;
+    width: 100%;
+    max-width: 860px;
+    text-align: left;
+  }
+
+  .portfolio-case-study .case-next-project > div span {
+    position: absolute;
+    top: 18px;
+    left: 34px;
+    text-align: left;
+  }
+
+  .portfolio-case-study .case-next-project > div h2,
+  .portfolio-case-study .case-next-project > div p {
+    text-align: left;
+  }
+
+  .portfolio-case-study .case-next-project > div h2 {
+    margin: 0 0 6px;
+    font-size: clamp(29px, 2.3vw, 35px);
+  }
+
+  .portfolio-case-study .case-next-project > div p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .portfolio-case-study .case-next-project > button {
+    grid-column: 2;
+    justify-self: end;
+  }
+}
+
+/* 案例跳转和完整文档入口补齐一致的悬浮、键盘聚焦反馈。 */
+.portfolio-case-study .case-next-project button,
+.portfolio-case-study .case-document-link a {
+  transition:
+    transform .18s ease,
+    background-color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.portfolio-case-study .case-next-project button {
+  box-shadow: 4px 5px 0 rgba(20, 32, 42, .34);
+}
+
+.portfolio-case-study .case-next-project button:hover,
+.portfolio-case-study .case-next-project button:focus-visible {
+  background: #ef4b63;
+  border-color: #ffe29a;
+  box-shadow: 7px 9px 0 rgba(20, 32, 42, .42);
+  transform: translateY(-3px);
+}
+
+.portfolio-case-study .case-document-link a {
+  border: 1px solid rgba(255, 255, 255, .38);
+  box-shadow: 3px 4px 0 rgba(47, 41, 48, .22);
+}
+
+.portfolio-case-study .case-document-link a:hover,
+.portfolio-case-study .case-document-link a:focus-visible {
+  color: #fff;
+  background: #294e63;
+  border-color: #ffe29a;
+  box-shadow: 5px 7px 0 rgba(47, 41, 48, .3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  .portfolio-case-study .case-next-project > div,
+  .portfolio-case-study .case-next-project > div span,
+  .portfolio-case-study .case-next-project > div h2,
+  .portfolio-case-study .case-next-project > div p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .portfolio-case-study .case-next-project > div p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+.portfolio-case-study [data-editor-row] {
+  white-space: pre-line;
+}
+
+.portfolio-case-study i[data-editor-row],
+.portfolio-case-study .case-stat-row i,
+.portfolio-case-study .case-evidence-frame i,
+.portfolio-case-study .project-resource-guide i,
+.portfolio-case-study .project-overview-poster i {
+  font-style: normal;
+}
+
+.portfolio-module-editor-toggle {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 31px;
+  padding: 0 10px;
+  color: rgba(47, 41, 48, .68);
+  font-size: 10px;
+  font-weight: 850;
+  background: rgba(249, 245, 236, .74);
+  border: 1px solid rgba(47, 41, 48, .24);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(47, 41, 48, .06);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.portfolio-module-editor-toggle:hover {
+  color: #7d2138;
+  background: #f9f5ec;
+  transform: translateY(-1px);
+}
+
+.portfolio-module-editor-toggle svg {
+  width: 13px;
+  height: 13px;
+}
+
+.case-hero-slide > .portfolio-module-editor-toggle,
+.project-overview-hero > .portfolio-module-editor-toggle {
+  color: rgba(255, 255, 255, .78);
+  background: rgba(47, 41, 48, .18);
+  border-color: rgba(255, 255, 255, .25);
+}
+
+.portfolio-module-editor-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 0;
+  background: rgba(32, 29, 31, .3);
+  border: 0;
+  backdrop-filter: blur(2px);
+  cursor: default;
+}
+
+.portfolio-module-editor {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1001;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  width: min(430px, calc(100vw - 36px));
+  overflow: hidden;
+  color: #2f2930;
+  background:
+    linear-gradient(rgba(249,245,236,.96), rgba(249,245,236,.96)),
+    radial-gradient(circle at 1px 1px, rgba(47,41,48,.14) 1px, transparent 1.2px);
+  background-size: auto, 18px 18px;
+  border: 1px solid rgba(47, 41, 48, .62);
+  border-radius: 15px;
+  box-shadow: 8px 10px 0 rgba(125, 33, 56, .22), 0 28px 70px rgba(26, 22, 24, .24);
+}
+
+.portfolio-module-editor > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 22px 17px;
+  border-bottom: 1px solid rgba(47, 41, 48, .16);
+}
+
+.portfolio-module-editor > header span {
+  color: #7d2138;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+
+.portfolio-module-editor > header h2 {
+  margin: 4px 0 0;
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.portfolio-module-editor > header button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  place-items: center;
+  color: #2f2930;
+  background: rgba(255, 255, 255, .55);
+  border: 1px solid rgba(47, 41, 48, .2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.portfolio-module-editor > header svg { width: 17px; }
+
+.portfolio-editor-tip {
+  margin: 0;
+  padding: 13px 22px;
+  color: rgba(47, 41, 48, .6);
+  font-size: 11px;
+  line-height: 1.55;
+  background: rgba(82, 123, 145, .07);
+  border-bottom: 1px solid rgba(47, 41, 48, .1);
+}
+
+.portfolio-editor-rows {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 17px 18px 24px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.portfolio-editor-row {
+  display: grid;
+  gap: 8px;
+  padding: 13px;
+  background: rgba(255, 255, 255, .5);
+  border: 1px solid rgba(47, 41, 48, .14);
+  border-radius: 9px;
+}
+
+.portfolio-editor-row > label {
+  color: #7d2138;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.portfolio-editor-row textarea {
+  width: 100%;
+  min-height: 38px;
+  padding: 9px 10px;
+  resize: vertical;
+  color: #2f2930;
+  font: 600 12px/1.5 "Microsoft YaHei", sans-serif;
+  background: rgba(249, 245, 236, .78);
+  border: 1px solid rgba(47, 41, 48, .22);
+  border-radius: 6px;
+  outline: none;
+}
+
+.portfolio-editor-row textarea:focus {
+  border-color: #527b91;
+  box-shadow: 0 0 0 3px rgba(82, 123, 145, .12);
+}
+
+.portfolio-editor-row > div {
+  display: grid;
+  grid-template-columns: 94px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.portfolio-editor-row > div span {
+  color: rgba(47, 41, 48, .62);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.portfolio-editor-row output {
+  color: #38596d;
+  font-weight: 900;
+}
+
+.portfolio-editor-row input[type="range"] {
+  width: 100%;
+  accent-color: #d43c55;
+}
+
+.portfolio-module-editor > footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px 18px 18px;
+  background: rgba(249, 245, 236, .96);
+  border-top: 1px solid rgba(47, 41, 48, .16);
+}
+
+.portfolio-module-editor > footer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 14px;
+  color: #2f2930;
+  font-size: 11px;
+  font-weight: 850;
+  background: transparent;
+  border: 1px solid rgba(47, 41, 48, .24);
+  cursor: pointer;
+}
+
+.portfolio-module-editor > footer button.primary {
+  min-width: 120px;
+  color: #fff;
+  background: #38596d;
+  border-color: #2f2930;
+}
+
+.portfolio-module-editor > footer svg { width: 14px; }
+
+/* 桌面端保持单页阅读感：收小容器、导航和案例高度，不牺牲正文可读性。 */
+@media (min-width: 1181px) {
+  .site-shell.page-works .works-section .site-width {
+    width: min(1440px, calc(100% - 96px));
+  }
+
+  .portfolio-case-study {
+    gap: 22px;
+  }
+
+  .portfolio-case-study .case-project-switcher {
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .portfolio-case-study .case-switcher-title,
+  .portfolio-case-study .case-project-switcher > button {
+    min-height: 54px;
+    padding: 8px 13px;
+  }
+
+  .portfolio-case-study .case-project-switcher button > span {
+    font-size: 13px;
+  }
+
+  .portfolio-case-study .case-slide {
+    padding: 30px 38px;
+  }
+
+  .portfolio-case-study .project-overview-hero {
+    height: min(570px, calc(100vh - 172px));
+    min-height: 530px;
+    grid-template-columns: minmax(350px, .84fr) minmax(470px, 1.16fr);
+    gap: 20px 36px;
+  }
+
+  .project-overview-copy h1 {
+    margin: 13px 0 9px;
+    font-size: clamp(46px, 4vw, 62px);
+  }
+
+  .project-overview-copy h2 {
+    margin-bottom: 9px;
+    font-size: clamp(18px, 1.45vw, 23px);
+  }
+
+  .project-overview-copy > p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .project-overview-role {
+    margin-top: 11px;
+    padding-top: 10px;
+  }
+
+  .project-overview-actions {
+    margin-top: 12px;
+  }
+
+  .project-overview-actions > * {
+    min-height: 40px;
+  }
+
+  .project-overview-poster span {
+    min-height: 38px;
+  }
+
+  .project-overview-metrics span {
+    padding-top: 10px;
+  }
+
+  .project-overview-metrics b { font-size: 19px; }
+
+  .project-overview-systems,
+  .project-overview-cases {
+    height: min(570px, calc(100vh - 160px));
+    min-height: 540px;
+    padding: 29px 36px;
+    gap: 17px 27px;
+  }
+
+  .project-overview-systems header h2,
+  .project-overview-cases header h2 {
+    margin: 7px 0 6px;
+    font-size: clamp(31px, 2.65vw, 42px);
+  }
+
+  .project-overview-systems header p,
+  .project-overview-cases header p {
+    font-size: 12px;
+  }
+
+  .project-system-map section {
+    padding: 13px 15px;
+  }
+
+  .project-system-map h3 { font-size: 19px; }
+  .project-system-map p { margin-bottom: 8px; font-size: 11px; }
+  .project-overview-contribution { padding: 21px; }
+  .project-overview-contribution h3 { margin: 9px 0 15px; font-size: clamp(24px, 2vw, 31px); }
+  .project-overview-contribution p { padding-top: 7px; }
+
+  .project-overview-case-grid {
+    gap: 13px;
+  }
+
+  .project-overview-case-grid button {
+    grid-template-rows: 120px auto auto auto 1fr auto;
+    padding-bottom: 11px;
+  }
+
+  .project-overview-case-grid img {
+    height: 120px;
+  }
+
+  .project-overview-case-grid h3 { font-size: 20px; }
+  .project-overview-case-grid button > b { margin-top: 8px; padding-top: 7px; }
+  .project-resource-guide { padding-top: 10px; }
+
+  .portfolio-case-study.case-beijun .case-hero-slide,
+  .portfolio-case-study.case-tutorial .case-hero-slide,
+  .portfolio-case-study.case-dungeon .case-hero-slide {
+    height: min(560px, calc(100vh - 180px));
+    min-height: 520px;
+    padding: 30px 36px;
+  }
+
+  .portfolio-case-study .case-detail-slide {
+    height: min(570px, calc(100vh - 152px));
+    min-height: 520px;
+    padding: 27px 34px;
+    gap: 14px 28px;
+    grid-template-columns: minmax(320px, .82fr) minmax(420px, 1.18fr);
+  }
+
+  .portfolio-case-study .case-slide-heading h2 {
+    font-size: clamp(27px, 2.15vw, 35px);
+  }
+
+  .portfolio-case-study .case-generic-evidence {
+    max-height: 455px;
+  }
+
+  .portfolio-case-study .case-detail-slide:has(.case-generic-flow) .case-generic-evidence {
+    height: 225px;
+    max-height: 225px;
+  }
+
+  .case-page-rail {
+    left: max(14px, calc((100vw - 1440px) / 2 - 132px));
+  }
+}
+
+/* 项目总览首屏：与后续案例共用左上标题骨架，并优先说明“我参与了什么”。 */
+@media (min-width: 1181px) {
+  .portfolio-case-study .project-overview-hero {
+    grid-template-columns: minmax(600px, 1.02fr) minmax(500px, .98fr);
+    align-items: start;
+    padding-top: 34px;
+  }
+
+  .portfolio-case-study .project-overview-copy {
+    align-self: start;
+    padding-top: 0;
+  }
+
+  .portfolio-case-study .project-overview-copy .case-kicker {
+    margin: 0 0 10px;
+  }
+
+  .portfolio-case-study .project-overview-copy h1 {
+    margin: 0 0 10px;
+    font-size: clamp(36px, 2.35vw, 44px);
+    line-height: 1.04;
+    letter-spacing: -.045em;
+    white-space: nowrap;
+  }
+
+  .portfolio-case-study .project-overview-copy h2 {
+    max-width: 680px;
+    margin: 0 0 10px;
+    font-size: clamp(17px, 1.2vw, 21px);
+    line-height: 1.38;
+  }
+
+  .portfolio-case-study .project-overview-role {
+    margin-top: 6px;
+    padding-top: 8px;
+  }
+
+  .portfolio-case-study .project-overview-actions {
+    margin-top: 10px;
+  }
+
+  .portfolio-case-study .project-overview-actions .overview-ppt-entry {
+    min-width: 118px;
+    color: #fff;
+    background: rgba(29,61,78,.56);
+    border-color: rgba(255,255,255,.48);
+    transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+
+  .portfolio-case-study .project-overview-actions .overview-cases-entry {
+    min-width: 190px;
+    color: #fff;
+    background: #df3f57;
+    border: 2px solid #2f2930;
+    box-shadow: 5px 6px 0 rgba(125,33,56,.72);
+    transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+  }
+
+  .portfolio-case-study .project-overview-actions .overview-ppt-entry:hover,
+  .portfolio-case-study .project-overview-actions .overview-ppt-entry:focus-visible {
+    transform: translateY(-3px);
+    background: rgba(37,77,97,.9);
+    border-color: rgba(255,255,255,.85);
+    box-shadow: 0 7px 18px rgba(18,42,54,.28);
+  }
+
+  .portfolio-case-study .project-overview-actions .overview-cases-entry:hover,
+  .portfolio-case-study .project-overview-actions .overview-cases-entry:focus-visible {
+    transform: translateY(-3px);
+    background: #ee4b63;
+    box-shadow: 7px 9px 0 rgba(125,33,56,.78), 0 10px 22px rgba(38,24,31,.22);
+  }
+
+  .portfolio-case-study .project-overview-case-scope {
+    max-width: 690px;
+    margin-top: 17px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.24);
+  }
+
+  .portfolio-case-study .project-overview-case-scope > p {
+    max-width: 680px;
+    margin: 0;
+    color: rgba(255,255,255,.84);
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .portfolio-case-study .project-overview-case-scope ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .portfolio-case-study .project-overview-case-scope li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 8px;
+    padding: 8px 9px;
+    background: rgba(23,58,75,.22);
+    border: 1px solid rgba(255,255,255,.14);
+  }
+
+  .portfolio-case-study .project-overview-case-scope li b {
+    grid-row: 1 / 3;
+    align-self: center;
+    color: #ffe09a;
+    font-size: 13px;
+  }
+
+  .portfolio-case-study .project-overview-case-scope li span {
+    color: rgba(255,255,255,.58);
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
+
+  .portfolio-case-study .project-overview-case-scope li strong {
+    overflow: hidden;
+    color: #fff;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .portfolio-case-study .project-overview-poster {
+    align-self: start;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1180px) {
+  .portfolio-case-study .project-overview-case-scope {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.22);
+  }
+
+  .portfolio-case-study .project-overview-case-scope > p {
+    color: rgba(255,255,255,.84);
+    line-height: 1.6;
+  }
+
+  .portfolio-case-study .project-overview-case-scope ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .portfolio-case-study .project-overview-case-scope li {
+    display: grid;
+    padding: 9px;
+    background: rgba(23,58,75,.22);
+    border: 1px solid rgba(255,255,255,.14);
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-module-editor-toggle {
+    top: 10px;
+    right: 10px;
+  }
+
+  .portfolio-module-editor {
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: calc(100vw - 16px);
+    border-radius: 12px;
+  }
+
+  .portfolio-module-editor > header {
+    padding: 17px 16px 13px;
+  }
+
+  .portfolio-editor-rows {
+    padding: 13px 12px 18px;
+  }
+}
+
+/* 项目总览：把 PPT 的主题、系统与案例压缩为可快速扫读的网页模块。 */
+@media (min-width: 1181px) {
+  .portfolio-case-study .project-overview-systems {
+    grid-template-columns: minmax(330px, .88fr) minmax(560px, 1.12fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 13px 20px;
+  }
+
+  .portfolio-case-study .project-overview-systems > header {
+    grid-template-columns: minmax(390px, .84fr) minmax(500px, 1.16fr);
+    gap: 5px 28px;
+  }
+
+  .portfolio-case-study .project-overview-systems header h2 {
+    margin: 4px 0 2px;
+    font-size: clamp(28px, 2.25vw, 36px);
+  }
+
+  .portfolio-case-study .project-overview-systems header p {
+    padding-bottom: 2px;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .portfolio-case-study .project-theme-feature { min-height: 0; }
+
+  .portfolio-case-study .project-system-map section {
+    padding: 7px;
+  }
+
+  .portfolio-case-study .project-system-map h3 {
+    font-size: 18px;
+  }
+
+  .portfolio-case-study .project-system-map p {
+    margin-bottom: 7px;
+    font-size: 10px;
+  }
+
+  .portfolio-case-study .project-overview-contribution {
+    padding: 13px 18px;
+  }
+
+  .portfolio-case-study .project-overview-contribution h3 {
+    margin: 4px 0 0;
+    font-size: clamp(20px, 1.7vw, 27px);
+  }
+
+  .portfolio-case-study .project-overview-contribution p {
+    padding: 4px 0 4px 12px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .project-overview-systems > header {
+    grid-template-columns: 1fr;
+  }
+
+  .project-overview-systems > header h2,
+  .project-overview-systems > header p {
+    grid-column: 1;
+  }
+
+  .project-overview-contribution {
+    grid-template-columns: 1fr;
+  }
+
+  .project-overview-contribution div {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .project-theme-feature ul,
+  .project-overview-contribution div {
+    grid-template-columns: 1fr;
+  }
+
+  .project-system-map section {
+    grid-template-columns: 110px minmax(0, 1fr);
+  }
+}
+
+/* Final project-overview hierarchy pass — keep last so legacy rules cannot override it. */
+.portfolio-case-study .project-overview-actions .overview-ppt-entry {
+  min-width: 132px;
+  color: #f6dfaa;
+  background: rgba(28, 58, 74, .9);
+  border: 1px solid rgba(246, 223, 170, .72);
+  box-shadow: 3px 4px 0 rgba(73, 38, 50, .28);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.portfolio-case-study .project-overview-actions .overview-ppt-entry:hover,
+.portfolio-case-study .project-overview-actions .overview-ppt-entry:focus-visible {
+  transform: translateY(-2px);
+  color: #fff7df;
+  background: #294e63;
+  border-color: #f6dfaa;
+  box-shadow: 4px 6px 0 rgba(73, 38, 50, .32);
+}
+
+.portfolio-case-study .project-overview-actions .overview-cases-entry {
+  min-width: 172px;
+  box-shadow: 4px 5px 0 rgba(125, 33, 56, .68);
+}
+
+.portfolio-case-study .project-overview-actions .overview-cases-entry:hover,
+.portfolio-case-study .project-overview-actions .overview-cases-entry:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 5px 7px 0 rgba(125, 33, 56, .72);
+}
+
+.portfolio-case-study .project-overview-case-scope {
+  max-width: 760px;
+  margin-top: 16px;
+  padding-top: 12px;
+}
+
+.portfolio-case-study .project-overview-case-scope > p {
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.portfolio-case-study .project-overview-case-scope ol { gap: 10px; }
+.portfolio-case-study .project-overview-case-scope li {
+  --case-accent: #ffd66f;
+  min-height: 62px;
+  padding: 10px 12px;
+  background: rgba(23, 58, 75, .34);
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-top: 3px solid var(--case-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.portfolio-case-study .project-overview-case-scope li:nth-child(2) { --case-accent: #8fd1d3; }
+.portfolio-case-study .project-overview-case-scope li:nth-child(3) { --case-accent: #f2a2ad; }
+.portfolio-case-study .project-overview-case-scope li b { color: var(--case-accent); font-size: 19px; }
+.portfolio-case-study .project-overview-case-scope li span { color: rgba(255,255,255,.72); font-size: 10px; }
+.portfolio-case-study .project-overview-case-scope li strong { font-size: 12px; }
+
+/* 系统案例首屏按实际内容收高，避免宽屏下在操作区之后留下大块空白。 */
+@media (min-width: 1181px) {
+  .portfolio-case-study.case-tutorial .case-hero-slide,
+  .portfolio-case-study.case-dungeon .case-hero-slide {
+    height: auto;
+    min-height: 0;
+  }
+}
+
+.portfolio-case-study .project-overview-systems > header .case-kicker,
+.portfolio-case-study .project-overview-cases > header .case-kicker {
+  color: #9a611a;
+  text-shadow: none;
+}
+
+.portfolio-case-study .project-overview-systems > header h2,
+.portfolio-case-study .project-overview-cases > header h2 { color: #2f2930; }
+
+.portfolio-case-study .project-system-map {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.portfolio-case-study .project-system-map section {
+  --pillar-accent: #b58a2c;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-rows: auto auto auto 1fr;
+  gap: 4px 12px;
+  min-height: 170px;
+  padding: 9px;
+  border: 1px solid rgba(47, 41, 48, .28);
+  border-top: 4px solid var(--pillar-accent);
+  background: rgba(255, 252, 245, .95);
+  box-shadow: 4px 4px 0 rgba(93, 50, 57, .08);
+}
+
+.portfolio-case-study .project-system-map .system-pillar--gold { --pillar-accent: #b58a2c; }
+.portfolio-case-study .project-system-map .system-pillar--coral { --pillar-accent: #df5363; }
+.portfolio-case-study .project-system-map .system-pillar--blue { --pillar-accent: #5f8fa7; }
+.portfolio-case-study .project-system-map .system-pillar--crimson { --pillar-accent: #97203f; }
+.portfolio-case-study .project-system-map .system-pillar--teal { --pillar-accent: #3b7c70; }
+.portfolio-case-study .project-system-map .system-pillar--plum { --pillar-accent: #7b5573; }
+
+.portfolio-case-study .project-system-map section > button {
+  grid-column: 1;
+  grid-row: 1 / 5;
+  width: 100%;
+  min-height: 150px;
+  overflow: hidden;
+  border: 0;
+  background: #e8e0d4;
+  cursor: zoom-in;
+}
+
+.portfolio-case-study .project-system-map section > button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-case-study .project-system-map section > small {
+  grid-column: 2;
+  color: var(--pillar-accent);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.portfolio-case-study .project-system-map h3 {
+  grid-column: 2;
+  color: #2f2930;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.portfolio-case-study .project-system-map p {
+  grid-column: 2;
+  margin: 0;
+  color: #6b6662;
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list {
+  grid-column: 2;
+  display: grid;
+  gap: 4px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list li {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 7px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(47, 41, 48, .1);
+}
+
+.portfolio-case-study .project-system-map .system-pillar-list b { color: var(--pillar-accent); font-size: 10px; }
+.portfolio-case-study .project-system-map .system-pillar-list span { color: #5f5b58; font-size: 9.5px; line-height: 1.35; }
+
+.portfolio-case-study .project-overview-case-grid button > b {
+  justify-self: start;
+  width: auto;
+  min-height: 0;
+  margin: 12px 12px 0;
+  padding: 7px 10px;
+  color: #244b60;
+  background: rgba(56, 89, 109, .08);
+  border: 1px solid rgba(56, 89, 109, .28);
+  font-size: 11px;
+}
+
+@media (min-width: 1181px) {
+  .portfolio-case-study .project-overview-systems {
+    height: auto;
+    min-height: 700px;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-case-study .project-system-map { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .portfolio-case-study .project-overview-case-scope ol { grid-template-columns: 1fr; }
+  .portfolio-case-study .project-system-map section { grid-template-columns: 96px minmax(0, 1fr); }
+}
+
+@media (min-width: 761px) {
+  .portfolio-case-study [data-portfolio-module="beijun:flow"].case-detail-slide:has(.case-generic-flow) .case-generic-evidence {
+    align-self: start;
+    height: 285px;
+    max-height: 285px;
+  }
+
+  .portfolio-case-study [data-portfolio-module="beijun:flow"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+  }
+
+  .portfolio-case-study [data-portfolio-module="tutorial:flow"].case-detail-slide:has(.case-generic-flow) .case-generic-evidence,
+  .portfolio-case-study [data-portfolio-module="dungeon:flow"].case-detail-slide:has(.case-generic-flow) .case-generic-evidence {
+    align-self: start;
+    height: 305px;
+    max-height: 305px;
+  }
+
+  .portfolio-case-study [data-portfolio-module="tutorial:flow"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: left top;
+    transform: translate(-1%, -2%) scale(1.06);
+    transform-origin: left top;
+  }
+
+  .portfolio-case-study [data-portfolio-module="dungeon:flow"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+  }
+
+  .portfolio-case-study [data-portfolio-module="beijun:intent"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: left top;
+    transform: translate(-4%, -7%) scale(1.64);
+    transform-origin: left top;
+  }
+
+  .portfolio-case-study [data-portfolio-module="beijun:pacing"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: left top;
+    transform: translate(-3.5%, -6%) scale(1.62);
+    transform-origin: left top;
+  }
+
+  .portfolio-case-study [data-portfolio-module="beijun:proof"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: left top;
+    transform: translate(-3.5%, -7%) scale(1.65);
+    transform-origin: left top;
+  }
+
+  .portfolio-case-study [data-portfolio-module="tutorial:intent"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: center 82%;
+    transform: translateY(-2%) scale(1.18);
+    transform-origin: center center;
+  }
+
+  .portfolio-case-study [data-portfolio-module="dungeon:intent"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: left top;
+    transform: translate(-3.5%, -6.5%) scale(1.62);
+    transform-origin: left top;
+  }
+
+  .portfolio-case-study [data-portfolio-module="tutorial:delivery"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="tutorial:proof"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="dungeon:delivery"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
+  }
+
+  .portfolio-case-study [data-portfolio-module="dungeon:proof"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: left top;
+    transform: translate(-2.5%, -4%) scale(1.18);
+    transform-origin: left top;
+  }
+}
+
+/* 项目总览六类系统：只展示实机/UI 主体，点击后再查看完整原始页面。 */
+.portfolio-case-study .project-system-map section {
+  grid-template-columns: 136px minmax(0, 1fr);
+}
+
+.portfolio-case-study .project-system-map section > button {
+  height: 156px;
+  min-height: 156px;
+  overflow: hidden;
+  padding: 0;
+  background: #17252b;
+  border: 1px solid color-mix(in srgb, var(--pillar-accent) 72%, #1d3039);
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.portfolio-case-study .system-pillar-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #17252b;
+  border-radius: 6px;
+}
+
+.portfolio-case-study .system-pillar-visual-pane {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  background: #17252b;
+}
+
+.portfolio-case-study .system-pillar-visual-pane img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.88) saturate(.96) contrast(1.08);
+  transition: filter .2s ease, transform .2s ease;
+}
+
+.portfolio-case-study .project-system-map section > button:hover .system-pillar-visual-pane img,
+.portfolio-case-study .project-system-map section > button:focus-visible .system-pillar-visual-pane img {
+  filter: brightness(.98) saturate(1.04) contrast(1.08);
+}
+
+.portfolio-case-study .system-pillar-visual-label {
+  position: absolute;
+  z-index: 5;
+  left: 7px;
+  bottom: 7px;
+  max-width: calc(100% - 14px);
+  padding: 5px 8px;
+  overflow: hidden;
+  color: #fff;
+  background: color-mix(in srgb, var(--pillar-accent) 76%, #19303a);
+  border-left: 3px solid rgba(255,255,255,.68);
+  border-radius: 3px;
+  box-shadow: 0 3px 9px rgba(10,20,26,.28);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portfolio-case-study .system-pillar-visual--overlay .system-pillar-visual-primary img {
+  object-position: center 45%;
+}
+
+.portfolio-case-study .system-pillar-visual--overlay .system-pillar-visual-secondary {
+  z-index: 3;
+  inset: auto 7px 30px auto;
+  width: 45%;
+  height: 43%;
+  border: 2px solid rgba(255,255,255,.84);
+  border-radius: 4px;
+  box-shadow: 0 5px 12px rgba(4,12,16,.5);
+}
+
+.portfolio-case-study .system-pillar-visual--overlay .system-pillar-visual-secondary img {
+  object-position: center;
+}
+
+.portfolio-case-study .system-pillar-visual--world .system-pillar-visual-primary img {
+  object-position: 68% center;
+}
+
+.portfolio-case-study .system-pillar-visual--boss .system-pillar-visual-primary img {
+  object-position: center;
+}
+
+.portfolio-case-study .system-pillar-visual--daily-split .system-pillar-visual-primary,
+.portfolio-case-study .system-pillar-visual--economy-split .system-pillar-visual-primary {
+  right: 50%;
+}
+
+.portfolio-case-study .system-pillar-visual--daily-split .system-pillar-visual-secondary,
+.portfolio-case-study .system-pillar-visual--economy-split .system-pillar-visual-secondary {
+  left: 50%;
+  border-left: 2px solid rgba(255,255,255,.72);
+}
+
+.portfolio-case-study .system-pillar-visual--daily-split .system-pillar-visual-primary img {
+  object-position: 22% 55%;
+  transform: scale(1.66);
+}
+
+.portfolio-case-study .system-pillar-visual--daily-split .system-pillar-visual-secondary img {
+  object-position: 79% 55%;
+  transform: scale(1.66);
+}
+
+.portfolio-case-study .system-pillar-visual--economy-split .system-pillar-visual-primary img {
+  object-position: center;
+}
+
+.portfolio-case-study .system-pillar-visual--economy-split .system-pillar-visual-secondary img {
+  object-position: 84% 52%;
+  transform: scale(1.58);
+}
+
+.portfolio-case-study .system-pillar-visual--commerce .system-pillar-visual-primary img {
+  object-position: 20% 54%;
+  transform: scale(1.48);
+}
+
+@media (max-width: 900px) {
+  .portfolio-case-study .project-system-map section {
+    grid-template-columns: 148px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-case-study .project-system-map section {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+
+  .portfolio-case-study .project-system-map section > button {
+    height: 148px;
+    min-height: 148px;
+  }
+}
+
+/* 最终覆盖：六类系统采用完整渲染封面，不再使用狭窄截图与局部拼接。 */
+.portfolio-case-study .project-system-map section {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto auto;
+  gap: 6px;
+  min-height: 0;
+  padding: 10px;
+}
+
+.portfolio-case-study .project-system-map section > button {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+}
+
+.portfolio-case-study .project-system-map section > small {
+  position: absolute;
+  z-index: 7;
+  top: 18px;
+  right: 18px;
+  grid-column: 1;
+  padding: 4px 7px;
+  color: #fff;
+  background: rgba(18, 28, 34, .68);
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 999px;
+  font-size: 10px;
+  backdrop-filter: blur(6px);
+}
+
+.portfolio-case-study .project-system-map h3,
+.portfolio-case-study .project-system-map p,
+.portfolio-case-study .project-system-map .system-pillar-list {
+  grid-column: 1;
+}
+
+.portfolio-case-study .project-system-map h3 {
+  margin: 4px 0 0;
+}
+
+.portfolio-case-study .system-pillar-visual::after {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  content: '';
+  background: linear-gradient(180deg, rgba(8,18,24,.05), rgba(8,18,24,.18) 54%, rgba(8,18,24,.32));
+  pointer-events: none;
+}
+
+.portfolio-case-study .system-pillar-visual-pane img {
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  filter: brightness(.92) saturate(1.04) contrast(1.04);
+}
+
+.portfolio-case-study .system-pillar-visual-label {
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  max-width: calc(100% - 36px);
+  padding: 9px 16px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: color-mix(in srgb, var(--pillar-accent) 58%, rgba(12, 27, 34, .84));
+  border: 1px solid rgba(255,255,255,.7);
+  border-left-width: 1px;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(4,12,16,.38);
+  font-size: 15px;
+  letter-spacing: .08em;
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0,0,0,.58);
+  backdrop-filter: blur(7px);
+}
+
+@media (min-width: 761px) {
+  .portfolio-case-study [data-portfolio-module="beijun:flow"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="beijun:pacing"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="beijun:proof"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="tutorial:intent"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="dungeon:intent"] .case-evidence-frame img,
+  .portfolio-case-study [data-portfolio-module="dungeon:proof"] .case-evidence-frame img {
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-case-study .project-system-map section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-case-study .project-system-map section > button {
+    height: auto;
+    min-height: 0;
+  }
+
+  .portfolio-case-study .system-pillar-visual-label {
+    font-size: 13px;
+  }
+}
+
+/* 最终微调：系统缩略图保持紧凑，案例入口使用横向小按钮。 */
+.portfolio-case-study .project-system-map section > button {
+  height: 168px;
+  min-height: 168px;
+  aspect-ratio: auto;
+}
+
+.portfolio-case-study .project-overview-case-grid button > b {
+  display: inline-flex;
+  place-self: end start;
+  width: auto;
+  min-width: 132px;
+  height: 36px;
+  min-height: 36px;
+  margin: 12px 12px 0;
+  padding: 0 12px;
+  gap: 7px;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* 子模块截图仅保留标题，不再占用空间展示补充说明。 */
+.portfolio-case-study .case-evidence-frame > span {
+  min-height: 40px;
+  padding: 8px 10px;
+}
+
+.portfolio-case-study .case-evidence-copy small {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  .portfolio-case-study [data-portfolio-module="beijun:intent"] .case-evidence-frame img {
+    object-fit: contain;
+    object-position: center;
+    transform: none;
+  }
+}
+
+@media (min-width: 1181px) {
+  .portfolio-case-study .project-overview-systems {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .portfolio-case-study .project-overview-systems > header,
+  .portfolio-case-study .project-theme-feature,
+  .portfolio-case-study .project-system-map,
+  .portfolio-case-study .project-overview-contribution {
+    grid-column: 1;
+  }
+
+  .portfolio-case-study .project-theme-feature {
+    grid-template-columns: minmax(320px, .72fr) minmax(0, 1.28fr);
+    grid-template-rows: 220px;
+    height: 220px;
+  }
+
+  .portfolio-case-study .project-theme-feature > button {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .portfolio-case-study .project-theme-feature > div {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    padding: 18px 22px;
+  }
+
+  .portfolio-case-study .project-system-map {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-case-study .project-system-map section > button {
+    height: 148px;
+    min-height: 148px;
+  }
+}
+
+/* 代表案例卡片随内容收口，避免说明与入口按钮之间出现大段空白。 */
+.portfolio-case-study .project-overview-case-grid {
+  align-items: start;
+}
+
+.portfolio-case-study .project-overview-case-grid button {
+  grid-template-rows: auto auto auto auto auto;
+  align-self: start;
+}
+
+.portfolio-case-study .project-overview-case-grid button > b {
+  place-self: start;
+}
+
+@media (min-width: 1181px) {
+  .portfolio-case-study .project-overview-cases {
+    height: auto;
+    min-height: 0;
+    grid-template-rows: auto auto;
+    align-content: start;
+    overflow: visible;
+  }
+}

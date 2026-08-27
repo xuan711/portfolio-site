@@ -1,0 +1,179 @@
+/* Final, intentionally-last overrides for the editable ability overview and project introduction. */
+.page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-character-copy > span {
+  font-size: var(--hero-eyebrow-size, 14.4px) !important;
+  line-height: 1.25;
+}
+
+.page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-self-summary p {
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px;
+  font-size: var(--hero-summary-size, 14.4px) !important;
+  line-height: 1.5;
+}
+
+.page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-self-summary b {
+  color: #fff1d6;
+  font-size: var(--hero-summary-label-size, 13.8px) !important;
+  font-weight: 950;
+  line-height: 1.5;
+  text-shadow: 0 1px 0 rgba(47, 41, 48, .22);
+}
+
+.page-top .bento-comic-home .hero-tool-proof .hero-tool-name {
+  color: #ffe1a8;
+  font-size: 1.04em;
+  font-weight: 950;
+  letter-spacing: .015em;
+  text-shadow: 0 1px 0 rgba(47, 41, 48, .24);
+}
+
+.bento-editor-font-control > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bento-editor-font-control output {
+  color: #7d2138;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.bento-editor-font-control input[type="range"] {
+  width: 100%;
+  accent-color: #e85a63;
+  cursor: pointer;
+}
+
+.overview-project-identity > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.overview-project-identity span {
+  max-width: none;
+  overflow: visible;
+  font-size: 12px;
+  line-height: 1.35;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.overview-project-contribution {
+  min-height: 0;
+  padding: 22px 27px 18px;
+}
+
+.overview-project-contribution h2 {
+  margin-top: 12px;
+  font-size: 32px;
+}
+
+.overview-contribution-copy {
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.overview-contribution-copy p {
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.44;
+}
+
+.overview-contribution-copy p > b {
+  color: #4f7893;
+  font-size: 15.5px;
+  font-weight: 900;
+  line-height: 1.44;
+}
+
+.overview-project-contribution .overview-achievement-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 0;
+}
+
+.overview-project-contribution .overview-achievement-list b {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 8px;
+  font-size: 11.5px;
+  text-align: center;
+}
+
+@media (min-width: 1181px) {
+  .page-top .bento-comic-home .bento-intro-grid,
+  .page-top .bento-comic-home .bento-intro-grid .bento-character-card {
+    min-height: 348px;
+  }
+
+  .page-top .bento-comic-home .bento-intro-grid .bento-character-card {
+    height: 348px;
+  }
+
+  .page-top .bento-comic-home .bento-character-copy.vertical-center {
+    top: 22px;
+    transform: none;
+  }
+
+  .page-top .bento-comic-home .bento-character-copy.vertical-center.width-standard {
+    width: 56%;
+  }
+
+  .page-top .bento-comic-home .bento-comic-shell .home-cover-board > .home-portfolio-overview {
+    grid-template-columns: 610px minmax(0, 1fr);
+    grid-template-rows: 382px !important;
+    height: 404px !important;
+  }
+
+  .page-top .bento-comic-home .home-portfolio-overview .overview-project-contribution,
+  .page-top .bento-comic-home .home-portfolio-overview .overview-project-showcase {
+    height: 382px !important;
+    min-height: 0 !important;
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 761px) {
+  .page-top .bento-comic-home .home-portfolio-overview {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .overview-project-contribution {
+    min-height: 430px;
+  }
+
+  .overview-project-identity span {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-top .bento-comic-home .bento-self-summary p {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 8px;
+    font-size: min(var(--hero-summary-size, 13px), 13px);
+  }
+
+  .page-top .bento-comic-home .bento-self-summary b {
+    font-size: min(var(--hero-summary-label-size, 12px), 12px);
+  }
+
+  .overview-project-identity span {
+    white-space: normal;
+  }
+
+  .overview-project-contribution {
+    min-height: 0;
+  }
+
+  .overview-project-contribution .overview-achievement-list {
+    grid-template-columns: 1fr;
+  }
+}

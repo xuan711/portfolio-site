@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.codex-preview/
+current-*-preview.png
+public/videos/
+*.log
+.DS_Store
