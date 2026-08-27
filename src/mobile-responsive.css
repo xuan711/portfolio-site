@@ -1,0 +1,777 @@
+/* Mobile-only finishing layer. Desktop and tablet layouts remain unchanged. */
+@media (max-width: 760px) {
+  :root {
+    --mobile-page-pad: 14px;
+  }
+
+  html {
+    scroll-padding-top: 118px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+  .site-shell {
+    overflow: visible;
+  }
+
+  .cursor-note,
+  .portfolio-page-margin-label,
+  .portfolio-page-seal,
+  .portfolio-module-editor-toggle {
+    display: none !important;
+  }
+
+  /* Homepage toolbar and first reading screen */
+  .page-top .bento-comic-home {
+    min-height: auto;
+    padding: 0 0 24px;
+  }
+
+  .page-top .bento-comic-home .bento-comic-shell {
+    width: calc(100% - 20px) !important;
+    padding-top: max(8px, env(safe-area-inset-top));
+  }
+
+  .page-top .home-personal-toolbar,
+  .portfolio-global-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    width: 100%;
+    margin: 0;
+    padding: 9px 8px 10px;
+    border: 1px solid rgba(47, 41, 48, .18);
+    border-radius: 14px;
+    background: rgba(248, 244, 236, .94);
+    box-shadow: 0 8px 24px rgba(47, 41, 48, .1);
+    backdrop-filter: blur(14px);
+  }
+
+  .page-top .home-personal-toolbar::before,
+  .portfolio-global-toolbar::after {
+    display: none;
+  }
+
+  .page-top .home-toolbar-person,
+  .portfolio-global-toolbar .home-toolbar-person {
+    width: 100%;
+  }
+
+  .page-top .home-toolbar-avatar,
+  .portfolio-global-toolbar .home-toolbar-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .page-top .home-toolbar-name b,
+  .portfolio-global-toolbar .home-toolbar-name b {
+    font-size: 18px;
+  }
+
+  .page-top .home-toolbar-name small,
+  .portfolio-global-toolbar .home-toolbar-name small {
+    font-size: 9px;
+  }
+
+  .page-top .home-toolbar-nav,
+  .portfolio-global-toolbar .home-toolbar-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .page-top .home-toolbar-nav button,
+  .page-top .home-toolbar-nav a,
+  .portfolio-global-toolbar .home-toolbar-nav button,
+  .portfolio-global-toolbar .home-toolbar-nav a {
+    min-height: 44px;
+    padding: 6px 2px;
+    border-radius: 9px;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .page-top .home-toolbar-nav svg,
+  .portfolio-global-toolbar .home-toolbar-nav svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .page-top .home-toolbar-logo,
+  .portfolio-global-toolbar .home-toolbar-logo {
+    display: none;
+  }
+
+  .page-top .bento-comic-home .home-cover-board {
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .page-top .bento-comic-home .bento-intro-grid,
+  .page-top .bento-comic-home .bento-character-card {
+    height: auto;
+    min-height: 570px;
+  }
+
+  .page-top .bento-comic-home .bento-character-copy.vertical-center,
+  .page-top .bento-comic-home .bento-character-copy.vertical-center.width-standard {
+    top: 22px;
+    left: 18px;
+    z-index: 5;
+    width: calc(100% - 36px);
+    transform: none;
+  }
+
+  .page-top .bento-comic-home .bento-character-copy h1 {
+    max-width: 100%;
+    font-size: clamp(30px, 9.5vw, 38px);
+    line-height: 1.12;
+  }
+
+  .page-top .bento-comic-home .bento-self-summary {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .page-top .bento-comic-home .bento-self-summary p {
+    grid-template-columns: 68px minmax(0, 1fr);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .page-top .bento-comic-home .bento-card-character {
+    right: -12%;
+    bottom: 9%;
+    height: 40%;
+    opacity: .78;
+    pointer-events: none;
+  }
+
+  .page-top .hero-explore-button {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+    min-height: 56px;
+  }
+
+  .page-top .bento-comic-home .home-portfolio-overview.representative-project-section {
+    margin: 14px 0 18px;
+  }
+
+  .representative-project-card {
+    grid-template-columns: 1fr;
+    height: auto;
+    border-radius: 14px;
+  }
+
+  .representative-project-media {
+    grid-template-rows: 200px auto;
+    padding: 7px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(47, 41, 48, .18);
+  }
+
+  .representative-module-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(145px, 1fr));
+    grid-auto-rows: 88px;
+    gap: 7px;
+    overflow-x: auto;
+    padding: 1px 1px 7px;
+    scroll-snap-type: x proximity;
+  }
+
+  .representative-module-strip figure {
+    scroll-snap-align: start;
+  }
+
+  .representative-project-info {
+    padding: 20px 18px 22px;
+  }
+
+  .representative-project-heading h2 {
+    font-size: 27px;
+  }
+
+  .representative-project-role {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .representative-project-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Shared secondary pages */
+  .portfolio-global-toolbar {
+    border-radius: 0 0 14px 14px;
+  }
+
+  .site-shell:not(.page-top) main > section {
+    min-height: 0;
+    padding: 24px 0 42px;
+  }
+
+  .site-shell:not(.page-top) .site-width,
+  .site-width {
+    width: calc(100% - 24px);
+  }
+
+  .site-shell:not(.page-top) .section-intro,
+  .site-shell:not(.page-top) .section-heading,
+  .site-shell:not(.page-top) .game-page-heading {
+    margin-bottom: 28px;
+  }
+
+  .site-shell:not(.page-top) .section-heading h2,
+  .site-shell:not(.page-top) .split-intro h2,
+  .site-shell:not(.page-top) .game-page-heading h2,
+  .site-shell:not(.page-top) .game-heading h2 {
+    margin: 10px 0;
+    font-size: clamp(30px, 9vw, 38px);
+    line-height: 1.08;
+  }
+
+  .site-shell:not(.page-top) .section-heading > p,
+  .site-shell:not(.page-top) .section-intro p,
+  .site-shell:not(.page-top) .game-page-heading p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .game-gallery-grid,
+  .capability-grid,
+  .genre-list,
+  .projects-stack {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .game-gallery-card,
+  .game-gallery-card img {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .capability-card,
+  .genre-card {
+    min-height: 0;
+    padding: 22px 18px;
+  }
+
+  .site-shell.page-works .project-card,
+  .site-shell.page-works .project-media,
+  .site-shell.page-works .project-media img {
+    min-height: 290px;
+  }
+
+  .works-section .project-copy {
+    min-height: 0;
+    padding: 72px 18px 18px;
+  }
+
+  /* Portfolio overview and complete case pages */
+  .site-shell.page-works main > #works {
+    padding-top: 18px !important;
+  }
+
+  .beijun-case-study,
+  .portfolio-case-study {
+    gap: 14px;
+  }
+
+  .case-project-switcher {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding: 7px;
+    border-radius: 12px;
+    scroll-snap-type: x proximity;
+  }
+
+  .case-project-switcher .case-switcher-title {
+    display: none;
+  }
+
+  .case-project-switcher > button {
+    min-width: 178px;
+    min-height: 48px;
+    padding: 8px 10px;
+    scroll-snap-align: start;
+  }
+
+  .case-slide,
+  .project-overview-hero,
+  .project-overview-systems,
+  .project-overview-cases {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 22px 14px;
+    border-radius: 12px;
+  }
+
+  .case-hero-slide,
+  .project-overview-hero,
+  .portfolio-case-study .case-detail-slide {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .case-slide-no {
+    top: 10px;
+    right: 12px;
+    font-size: 54px;
+    opacity: .12;
+  }
+
+  .portfolio-case-study.case-beijun .case-hero-copy h1,
+  .portfolio-case-study.case-tutorial .case-hero-copy h1,
+  .portfolio-case-study.case-dungeon .case-hero-copy h1,
+  .project-overview-copy h1 {
+    margin-bottom: 10px;
+    font-size: clamp(34px, 10vw, 42px);
+    line-height: 1.03;
+  }
+
+  .portfolio-case-study.case-beijun .case-hero-copy h2,
+  .portfolio-case-study.case-tutorial .case-hero-copy h2,
+  .portfolio-case-study.case-dungeon .case-hero-copy h2,
+  .project-overview-copy h2,
+  .case-slide-heading h2,
+  .case-proof-copy h2 {
+    font-size: clamp(20px, 6.2vw, 27px);
+    line-height: 1.25;
+  }
+
+  .case-stat-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 18px 0 14px;
+  }
+
+  .case-stat-row span {
+    min-height: 58px;
+    padding: 9px;
+  }
+
+  .case-action-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .case-action-row > *,
+  .case-primary-action,
+  .case-document-link a,
+  .case-next-project button,
+  .project-resource-guide a {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .portfolio-case-study.case-beijun .case-hero-media,
+  .portfolio-case-study.case-tutorial .case-hero-media,
+  .portfolio-case-study.case-dungeon .case-hero-media,
+  .project-overview-poster {
+    width: 100%;
+    min-height: 0;
+    padding: 9px;
+  }
+
+  .portfolio-case-study .case-hero-media img,
+  .project-overview-poster img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .portfolio-case-study .case-detail-slide {
+    align-items: start;
+  }
+
+  .case-flow-rail,
+  .case-generic-flow {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 7px;
+    scroll-snap-type: x proximity;
+  }
+
+  .case-flow-node {
+    min-width: 126px;
+    scroll-snap-align: start;
+  }
+
+  .case-generic-evidence,
+  .case-detail-slide:has(.case-generic-flow) .case-generic-evidence,
+  .case-generic-evidence.case-evidence-pair,
+  .case-generic-evidence.case-evidence-pair .case-evidence-frame,
+  .case-evidence-positioning,
+  .case-evidence-pacing,
+  .case-evidence-testing,
+  .case-evidence-pair .case-evidence-frame {
+    width: 100%;
+    height: 320px;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .case-generic-evidence.case-evidence-pair,
+  .case-evidence-pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .case-document-link {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .case-next-project {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px 14px;
+  }
+
+  .project-overview-copy .case-kicker,
+  .project-overview-systems > header .case-kicker,
+  .project-overview-cases > header .case-kicker {
+    font-size: 11px;
+  }
+
+  .project-overview-systems > header h2,
+  .project-overview-cases > header h2 {
+    font-size: clamp(29px, 8.5vw, 37px);
+  }
+
+  .project-overview-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-theme-feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+
+  .project-theme-feature > button {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-theme-feature > div,
+  .project-overview-contribution {
+    padding: 20px 16px;
+  }
+
+  .project-system-map,
+  .project-overview-case-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .portfolio-case-study .project-system-map section > button {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .portfolio-case-study .project-overview-case-grid button {
+    grid-template-rows: 170px auto auto auto auto;
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .portfolio-case-study .project-overview-case-grid img {
+    height: 170px;
+  }
+
+  .portfolio-case-study .project-overview-case-grid button > b {
+    place-self: end start;
+  }
+
+  .project-resource-guide {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  /* Interactive document area */
+  .studio-window {
+    min-height: 0;
+    border-radius: 14px;
+  }
+
+  .window-topbar {
+    display: flex;
+    min-height: 60px;
+    padding: 8px;
+  }
+
+  .window-dots,
+  .window-title {
+    display: none;
+  }
+
+  .studio-tabs,
+  .sheet-tabs {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .studio-tabs button,
+  .sheet-tabs button {
+    flex: 0 0 auto;
+    min-height: 42px;
+  }
+
+  .studio-body {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .flow-preview {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .flow-track {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 7px;
+  }
+
+  .flow-track button {
+    flex: 0 0 142px;
+    min-height: 68px;
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .flow-track button svg {
+    display: none;
+  }
+
+  .flow-detail {
+    min-height: 330px;
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .flow-detail h3 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .workbook-preview {
+    border-radius: 14px;
+  }
+
+  .table-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Media and contact overlays */
+  .modal-backdrop,
+  .lightbox {
+    padding: 0;
+  }
+
+  .video-modal {
+    width: 100%;
+    max-height: 100svh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .video-modal-head,
+  .video-modal-foot {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .video-modal-head {
+    position: relative;
+    padding-right: 64px;
+  }
+
+  .video-modal-head .icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .video-modal-head h2 {
+    font-size: 20px;
+  }
+
+  .video-modal video {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-modal-foot > div,
+  .video-modal-foot a {
+    width: 100%;
+  }
+
+  .video-modal-foot a {
+    justify-content: center;
+  }
+
+  .lightbox > .icon-button {
+    top: max(12px, env(safe-area-inset-top));
+    right: 12px;
+  }
+
+  .lightbox img {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100svh - 96px);
+    border-radius: 10px;
+  }
+
+  .lightbox > span {
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    left: 10px;
+    text-align: center;
+  }
+
+  .site-shell.page-contact .contact-main {
+    margin: 22px 0;
+  }
+
+  .contact-self-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .contact-self-copy {
+    grid-row: 2;
+    padding-top: 0;
+  }
+
+  .contact-self-kicker {
+    position: static;
+    font-size: 11px;
+  }
+
+  .contact-self-copy h3 {
+    margin: 7px 0 14px;
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .contact-self-points {
+    gap: 10px;
+  }
+
+  .contact-self-points p {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .contact-self-avatar {
+    grid-row: 1;
+    justify-self: start;
+    width: 76px;
+    height: 76px;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-method-card {
+    min-height: 116px;
+    padding: 20px 18px;
+  }
+
+  .contact-method-copy strong {
+    overflow-wrap: anywhere;
+    font-size: 18px;
+  }
+
+  .contact-wechat-card {
+    min-height: 420px;
+    padding: 20px;
+  }
+
+  .contact-wechat-visual {
+    width: min(260px, 100%);
+  }
+
+  .contact-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-top .home-toolbar-nav button,
+  .page-top .home-toolbar-nav a,
+  .portfolio-global-toolbar .home-toolbar-nav button,
+  .portfolio-global-toolbar .home-toolbar-nav a {
+    font-size: 8.5px;
+  }
+
+  .page-top .bento-comic-home .bento-intro-grid,
+  .page-top .bento-comic-home .bento-character-card {
+    min-height: 610px;
+  }
+
+  .page-top .bento-comic-home .bento-character-copy h1 {
+    font-size: 29px;
+  }
+
+  .page-top .bento-comic-home .bento-self-summary p {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .case-stat-row,
+  .project-overview-metrics,
+  .representative-project-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .case-slide,
+  .project-overview-hero,
+  .project-overview-systems,
+  .project-overview-cases {
+    padding: 20px 12px;
+  }
+}

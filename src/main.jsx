@@ -9,6 +9,7 @@ import './works-case-study.css'
 import './works-case-study-extended.css'
 import './project-overview.css'
 import './portfolio-module-editor.css'
+import './mobile-responsive.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
