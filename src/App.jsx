@@ -688,11 +688,27 @@ function ProjectCard({ project, onPlay }) {
 const highlightedToolNames = new Set(['figma', 'iodraw', 'xmind', 'office', 'codex', 'unity/ue'])
 
 function renderToolProof(text) {
-  return String(text || '')
-    .split(/(Figma|ioDraw|XMind|Office|Codex|Unity\/UE)/gi)
-    .map((part, index) => highlightedToolNames.has(part.toLowerCase())
-      ? <strong className="hero-tool-name" key={`${part}-${index}`}>{part}</strong>
-      : part)
+  const content = String(text || '')
+  const tools = Array.from(content.matchAll(/(Figma|ioDraw|XMind|Office|Codex|Unity\/UE)\s*[：:]\s*([^·\n]+)/gi))
+
+  if (!tools.length) {
+    return content
+      .split(/(Figma|ioDraw|XMind|Office|Codex|Unity\/UE)/gi)
+      .map((part, index) => highlightedToolNames.has(part.toLowerCase())
+        ? <strong className="hero-tool-name" key={`${part}-${index}`}>{part}</strong>
+        : part)
+  }
+
+  return (
+    <span className="hero-tool-grid">
+      {tools.map(([, name, detail], index) => (
+        <span className="hero-tool-item" key={`${name}-${index}`}>
+          <strong className="hero-tool-name">{name}</strong>
+          <span className="hero-tool-detail">{detail.trim()}</span>
+        </span>
+      ))}
+    </span>
+  )
 }
 
 const beijunFlow = [

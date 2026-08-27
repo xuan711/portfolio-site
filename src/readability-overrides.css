@@ -27,6 +27,34 @@
   text-shadow: 0 1px 0 rgba(47, 41, 48, .24);
 }
 
+.page-top .bento-comic-home .hero-tool-proof {
+  min-width: 0;
+  font-style: normal;
+}
+
+.page-top .bento-comic-home .hero-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px 14px;
+  width: 100%;
+}
+
+.page-top .bento-comic-home .hero-tool-item {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+  align-items: baseline;
+}
+
+.page-top .bento-comic-home .hero-tool-name {
+  white-space: nowrap;
+}
+
+.page-top .bento-comic-home .hero-tool-detail {
+  min-width: 0;
+}
+
 .bento-editor-font-control > span {
   display: flex;
   align-items: center;
@@ -163,6 +191,16 @@
 
   .page-top .bento-comic-home .bento-self-summary b {
     font-size: min(var(--hero-summary-label-size, 12px), 12px);
+  }
+
+  .page-top .bento-comic-home .hero-tool-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .page-top .bento-comic-home .hero-tool-item {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 5px;
   }
 
   .overview-project-identity span {
