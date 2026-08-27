@@ -1759,3 +1759,20 @@
     overflow: visible;
   }
 }
+
+/* Keep the three representative cases aligned as one comparison row. */
+@media (min-width: 761px) {
+  .portfolio-case-study .project-overview-case-grid {
+    align-items: stretch;
+  }
+
+  .portfolio-case-study .project-overview-case-grid button {
+    grid-template-rows: 145px auto auto minmax(68px, 1fr) auto;
+    align-self: stretch;
+    height: 100%;
+  }
+
+  .portfolio-case-study .project-overview-case-grid button > b {
+    place-self: end start;
+  }
+}

@@ -21644,7 +21644,7 @@ body,
   color: #fffaf2;
   background:
     linear-gradient(90deg, rgba(38, 58, 71, .96), rgba(51, 80, 96, .88)),
-    url('/images/shanhai-world-banner.png') center 42% / cover;
+    url('/images/shanhai-world-banner.webp') center 42% / cover;
   border-radius: 9px;
 }
 

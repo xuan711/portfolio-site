@@ -605,6 +605,7 @@ function VideoModal({ project, onClose }) {
   }, [project, onClose])
 
   if (!project) return null
+  const primaryDocument = project.links?.[0]
   return (
     <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label={`${project.title}实机视频`} onMouseDown={onClose}>
       <div className="video-modal" onMouseDown={(event) => event.stopPropagation()}>
@@ -616,9 +617,11 @@ function VideoModal({ project, onClose }) {
         <div className="video-modal-foot">
           <p>{project.subtitle}</p>
           <div>
-            <a href={project.video} target="_blank" rel="noreferrer">
-              <ExternalLink />跳转查看云端视频
-            </a>
+            {primaryDocument && (
+              <a href={primaryDocument.href} target="_blank" rel="noreferrer">
+                <ExternalLink />{primaryDocument.label}
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -753,7 +756,7 @@ function BeijunCaseStudy({ onPlay, onOpenImage }) {
           </div>
         </div>
         <button type="button" className="case-hero-media" onClick={() => onPlay(project)} aria-label="播放北郡大牢一层实机演示">
-          <img src={assetUrl('/images/beijun-poster.webp')} alt="北郡大牢一层实机画面" />
+          <img loading="lazy" decoding="async" src={assetUrl('/images/beijun-poster.webp')} alt="北郡大牢一层实机画面" />
           <span className="case-video-badge"><Play fill="currentColor" />实机演示 · 07:08</span>
           <span className="case-media-note">线上版本实录</span>
         </button>
@@ -1189,7 +1192,7 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
           </div>
           <div className="project-overview-actions">
             <a className="overview-ppt-entry" href={DOCUMENT_LINKS.projectOverview} target="_blank" rel="noreferrer"><ArrowUpRight />项目展示 PPT</a>
-            <button className="case-primary-action overview-cases-entry" type="button" onClick={() => onSelectProject('beijun')}>代表案例开始看<ArrowRight /></button>
+            <button className="case-primary-action overview-cases-entry" type="button" onClick={() => onSelectProject('tutorial')}>代表案例开始看<ArrowRight /></button>
           </div>
           <div className="project-overview-case-scope">
             <p {...editableRowProps('case-scope', '代表案例范围说明', '我参与了项目整体系统规划及多个系统的设计、配置与迭代。为控制单次阅读时长，本作品集按玩家体验顺序选取三项代表案例，覆盖新手教学、关卡流程与常驻 PVE；其余参与内容在下方六类系统版图中集中呈现。')}>我参与了项目整体系统规划及多个系统的设计、配置与迭代。为控制单次阅读时长，本作品集按玩家体验顺序选取三项代表案例，覆盖新手教学、关卡流程与常驻 PVE；其余参与内容在下方六类系统版图中集中呈现。</p>
@@ -1204,10 +1207,10 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
         <button
           type="button"
           className="project-overview-poster"
-          onClick={() => onOpenImage({ src: assetUrl('/images/shanhai-world-banner.png'), alt: '山海传说完整项目主视觉', label: '《山海传说》原创 UGC MMORPG 项目主视觉' })}
+          onClick={() => onOpenImage({ src: assetUrl('/images/shanhai-world-banner.webp'), alt: '山海传说完整项目主视觉', label: '《山海传说》原创 UGC MMORPG 项目主视觉' })}
           aria-label="放大查看山海传说项目主视觉"
         >
-          <img src={assetUrl('/images/shanhai-world-banner.png')} alt="山海传说完整项目主视觉" />
+          <img loading="eager" decoding="async" fetchPriority="high" src={assetUrl('/images/shanhai-world-banner.webp')} alt="山海传说完整项目主视觉" />
           <span><i {...editableRowProps('poster-caption', '主视觉说明', '原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界')}>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界</i><ArrowUpRight /></span>
         </button>
 
@@ -1228,10 +1231,10 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
         <section className="project-theme-feature">
           <button
             type="button"
-            onClick={() => onOpenImage({ src: assetUrl('/images/project-overview/theme-world.png'), alt: '山海传说国风神话世界', label: '主题解读：把山海神话做成可游玩的世界' })}
+            onClick={() => onOpenImage({ src: assetUrl('/images/project-overview/theme-world.webp'), alt: '山海传说国风神话世界', label: '主题解读：把山海神话做成可游玩的世界' })}
             aria-label="放大查看山海传说主题世界画面"
           >
-            <img src={assetUrl('/images/project-overview/theme-world.png')} alt="山海传说国风神话世界" />
+            <img loading="lazy" decoding="async" src={assetUrl('/images/project-overview/theme-world.webp')} alt="山海传说国风神话世界" />
             <span>THEME & WORLD<ArrowUpRight /></span>
           </button>
           <div>
@@ -1255,11 +1258,11 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
               >
                 <div className={`system-pillar-visual system-pillar-visual--${pillar.visualMode || 'single'}`}>
                   <span className="system-pillar-visual-pane system-pillar-visual-primary">
-                    <img src={pillar.image} alt={`${pillar.title}系统实机截图`} />
+                    <img loading="lazy" decoding="async" src={pillar.image} alt={`${pillar.title}系统实机截图`} />
                   </span>
                   {pillar.detailImage && (
                     <span className="system-pillar-visual-pane system-pillar-visual-secondary">
-                      <img src={pillar.detailImage} alt="" />
+                      <img loading="lazy" decoding="async" src={pillar.detailImage} alt="" />
                     </span>
                   )}
                   <span className="system-pillar-visual-label">{pillar.visualLabel}</span>
@@ -1301,7 +1304,7 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
         <div className="project-overview-case-grid">
           {overviewCases.map((item, index) => (
             <button type="button" key={item.id} onClick={() => onSelectProject(item.id)}>
-              <img src={item.image} alt="" />
+              <img loading="lazy" decoding="async" src={item.image} alt="" />
               <span>0{index + 1}</span>
               <small {...editableRowProps(`case-${index}-eyebrow`, `案例${index + 1}类型`, item.eyebrow)}>{item.eyebrow}</small>
               <h3 {...editableRowProps(`case-${index}-title`, `案例${index + 1}标题`, item.title)}>{item.title}</h3>
@@ -1507,7 +1510,7 @@ function PortfolioCaseStudy({ onPlay, onOpenImage, isActive }) {
           />
         </div>
         <button type="button" className="case-hero-media" onClick={() => onPlay(project)} aria-label={`播放${content.title}实机演示`}>
-          <img src={content.poster} alt={`${content.title}实机画面`} />
+          <img loading="lazy" decoding="async" src={content.poster} alt={`${content.title}实机画面`} />
           <span className="case-video-badge"><Play fill="currentColor" />播放实机演示</span>
           <span className="case-media-note" {...editableRowProps('media-note', '画面标签', content.mediaNote)}>{content.mediaNote}</span>
         </button>
@@ -1737,7 +1740,7 @@ function App() {
           </div>
           <header className="portfolio-global-toolbar site-width">
             <button className="home-toolbar-person" type="button" onClick={() => navigate('top')} aria-label="返回孔泽轩的个人主页">
-              <span className="home-toolbar-avatar"><img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
+              <span className="home-toolbar-avatar"><img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
               <span className="home-toolbar-name"><span className="home-toolbar-name-line"><b>孔泽轩</b><strong>求职中</strong></span><small>求职系统策划 · 2027届</small></span>
             </button>
             <nav className="home-toolbar-nav" aria-label="全站快捷入口">
@@ -1747,12 +1750,12 @@ function App() {
               <button className={activeSection === 'contact' ? 'is-active' : ''} type="button" onClick={() => navigate('contact')}><Mail /><span>联系方式</span></button>
             </nav>
             <button className="home-toolbar-logo" type="button" onClick={() => navigate('works')} aria-label="查看山海传说项目作品">
-              <img src={assetUrl('/images/resources/shanhai-rpg-logo.png')} alt="山海传说 RPG" />
+              <img loading="lazy" decoding="async" src={assetUrl('/images/resources/shanhai-rpg-logo.png')} alt="山海传说 RPG" />
             </button>
           </header>
           <div className="portfolio-page-margin-label portfolio-page-margin-label-left" aria-hidden="true"><span>KONG ZEXUAN / SYSTEM DESIGN PORTFOLIO</span></div>
           <div className="portfolio-page-margin-label portfolio-page-margin-label-right" aria-hidden="true"><span>{pageFrameMeta[activeSection]}</span></div>
-          <img className="portfolio-page-seal" src={assetUrl('/images/shanhai-paper-seal.png')} alt="" aria-hidden="true" />
+          <img loading="lazy" decoding="async" className="portfolio-page-seal" src={assetUrl('/images/shanhai-paper-seal.png')} alt="" aria-hidden="true" />
         </>
       )}
 
@@ -1762,7 +1765,7 @@ function App() {
             <div className="desk-spotlight" aria-hidden="true" />
             <div className="desk-scroll desk-prop" aria-hidden="true"><i /><i /><span>山海志</span></div>
             <div className="desk-notes desk-prop" aria-hidden="true"><i /><b>关卡草图</b><span>入口 → 引导 → 验收</span></div>
-            <div className="desk-frame desk-prop" aria-hidden="true"><img src={assetUrl('/images/render-green.webp')} alt="" /></div>
+            <div className="desk-frame desk-prop" aria-hidden="true"><img loading="lazy" decoding="async" src={assetUrl('/images/render-green.webp')} alt="" /></div>
             <div className="desk-cubes desk-prop" aria-hidden="true"><i /><i /><i /></div>
 
             <div className={`portfolio-book ${bookOpen ? 'is-open' : 'is-closed'} ${pageTurning ? 'is-turning' : ''}`}>
@@ -1786,7 +1789,7 @@ function App() {
                     <div className="page-character-profile">
                       <span className="page-chapter">个人页</span>
                       <div className="character-rune" aria-hidden="true" />
-                      <img src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
                       <strong className="physical-status-stamp">求职中</strong>
                       <p>以规则构建体验<br />用文档推动落地</p>
                     </div>
@@ -1795,7 +1798,7 @@ function App() {
                   {bookSection === 'projects' && (
                     <div className="page-project-visual">
                       <span className="page-chapter">代表项目 · {featuredProject.index}</span>
-                      <img key={featuredProject.id} src={featuredProject.heroImage} alt={`${featuredProject.title}项目视觉`} style={{ objectPosition: featuredProject.heroPosition }} />
+                      <img loading="lazy" decoding="async" key={featuredProject.id} src={featuredProject.heroImage} alt={`${featuredProject.title}项目视觉`} style={{ objectPosition: featuredProject.heroPosition }} />
                       <div className="bestiary-mark"><b>{featuredProject.index}</b><span>山海项目图鉴</span></div>
                       <div className="book-project-dots" aria-label="选择代表项目">
                         {projects.map((project, index) => (
@@ -1813,7 +1816,7 @@ function App() {
                   {bookSection === 'capabilities' && (
                     <div className="page-illustrated-index">
                       <span className="page-chapter">策划能力</span>
-                      <img src={assetUrl('/images/render-boss.webp')} alt="山海传说战斗场景" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/render-boss.webp')} alt="山海传说战斗场景" />
                       <div className="index-seal">策</div>
                       <p>从设计意图到验收结果<br />建立可沟通、可配置、可追踪的证据链。</p>
                     </div>
@@ -1822,7 +1825,7 @@ function App() {
                   {bookSection === 'games' && (
                     <div className="page-illustrated-index">
                       <span className="page-chapter">游戏经历</span>
-                      <img src={assetUrl('/images/render-green.webp')} alt="山海传说世界场景" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/render-green.webp')} alt="山海传说世界场景" />
                       <div className="index-seal">游</div>
                       <p>以玩家体验建立品类坐标<br />再从系统设计视角拆解规则与反馈。</p>
                     </div>
@@ -1831,7 +1834,7 @@ function App() {
                   {bookSection === 'lab' && (
                     <div className="page-illustrated-index document-illustration">
                       <span className="page-chapter">策划文档</span>
-                      <img src={assetUrl('/images/beijun-poster.webp')} alt="北郡大牢系统策划文档预览" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/beijun-poster.webp')} alt="北郡大牢系统策划文档预览" />
                       <div className="index-seal">案</div>
                       <p>策划案、配表、流程图与实机验证<br />均可在网页内继续阅读。</p>
                     </div>
@@ -1946,7 +1949,7 @@ function App() {
 
               <article className="magazine-main-visual" aria-live="polite">
                 <div key={featuredProject.id} className="magazine-poster-media">
-                  <img src={featuredProject.heroImage} alt={`${featuredProject.title}代表项目主视觉`} style={{ objectPosition: featuredProject.heroPosition }} />
+                  <img loading="lazy" decoding="async" src={featuredProject.heroImage} alt={`${featuredProject.title}代表项目主视觉`} style={{ objectPosition: featuredProject.heroPosition }} />
                   <div className="magazine-duotone" aria-hidden="true" />
                   <div className="magazine-halftone" aria-hidden="true" />
                 </div>
@@ -1961,7 +1964,7 @@ function App() {
                   <p>{featuredProject.eyebrow}</p>
                 </div>
 
-                <img className="magazine-foreground-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
+                <img loading="lazy" decoding="async" className="magazine-foreground-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
 
                 <footer className="magazine-identity-strip">
                   <div><span>求职方向</span><h2>游戏系统策划</h2></div>
@@ -1982,7 +1985,7 @@ function App() {
                     onFocus={() => setFeaturedProjectIndex(index)}
                     onClick={() => setFeaturedProjectIndex(index)}
                   >
-                    <img src={project.heroImage} alt="" />
+                    <img loading="lazy" decoding="async" src={project.heroImage} alt="" />
                     <span>{project.index}</span>
                     <b>{project.title}</b>
                   </button>
@@ -2011,11 +2014,11 @@ function App() {
           <div className="home-section-band home-section-band-project" aria-hidden="true" />
           <div className="home-margin-label home-margin-label-left" aria-hidden="true"><span>KONG ZEXUAN / SYSTEM DESIGN PORTFOLIO</span></div>
           <div className="home-margin-label home-margin-label-right" aria-hidden="true"><span>FEATURED PROJECT / 01</span></div>
-          <img className="home-margin-seal" src={assetUrl('/images/shanhai-paper-seal.png')} alt="" aria-hidden="true" />
+          <img loading="lazy" decoding="async" className="home-margin-seal" src={assetUrl('/images/shanhai-paper-seal.png')} alt="" aria-hidden="true" />
           <div className="bento-comic-shell site-width">
               <header className="home-personal-toolbar">
                 <button className="home-toolbar-person" type="button" onClick={() => navigateWithComicWipe('top')} aria-label="返回孔泽轩的个人主页">
-                  <span className="home-toolbar-avatar"><img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
+                  <span className="home-toolbar-avatar"><img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
                   <span className="home-toolbar-name"><span className="home-toolbar-name-line"><b>孔泽轩</b><strong>求职中</strong></span><small>求职系统策划 · 2027届</small></span>
                 </button>
                 <nav className="home-toolbar-nav" aria-label="首页快捷入口">
@@ -2025,7 +2028,7 @@ function App() {
                   <button type="button" onClick={() => navigateWithComicWipe('contact')}><Mail /><span>联系方式</span></button>
                 </nav>
                 <button className="home-toolbar-logo" type="button" onClick={startExplore} aria-label="查看山海传说项目作品">
-                  <img src={assetUrl('/images/resources/shanhai-rpg-logo.png')} alt="山海传说 RPG" />
+                  <img loading="lazy" decoding="async" src={assetUrl('/images/resources/shanhai-rpg-logo.png')} alt="山海传说 RPG" />
                 </button>
               </header>
 
@@ -2051,7 +2054,7 @@ function App() {
                   <button className="hero-explore-button" type="button" onClick={startExplore}>
                     <span><b>开始探索</b><small>查看项目完整作品集</small></span><ArrowRight />
                   </button>
-                  <img className="bento-card-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
+                  <img loading="lazy" decoding="async" className="bento-card-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
                   <button className="bento-hero-editor-toggle" type="button" onClick={() => setHeroEditorOpen(true)} aria-label="编辑首页主视觉文案" title="编辑首页主视觉文案"><Settings2 /><span>编辑内容</span></button>
                 </article>
               </div>
@@ -2059,7 +2062,7 @@ function App() {
               <section className="home-portfolio-overview" aria-label="作品集概览">
                 <article className="overview-info-card overview-project-contribution">
                   <header className="overview-project-identity">
-                    <img src={assetUrl('/images/shanhai-vertical-logo.png')} alt="" />
+                    <img loading="lazy" decoding="async" src={assetUrl('/images/shanhai-vertical-logo.png')} alt="" />
                     <div><b>山海传说</b><span>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界</span></div>
                   </header>
                   <h2>项目背景与个人贡献</h2>
@@ -2074,18 +2077,18 @@ function App() {
                 <div className="overview-project-showcase" aria-label="山海传说项目规模与核心玩法">
                   <div className="overview-showcase-visual-row">
                     <figure className="overview-world-poster">
-                      <img src={assetUrl('/images/shanhai-world-banner.png')} alt="山海传说完整角色阵容宣传图" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/shanhai-world-banner.webp')} alt="山海传说完整角色阵容宣传图" />
                     </figure>
                     <figure className="overview-render-card">
-                      <img src={assetUrl('/images/featured-render-wer.png')} alt="山海传说赤焰首领战渲染海报" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/featured-render-wer.png')} alt="山海传说赤焰首领战渲染海报" />
                     </figure>
                     <figure className="overview-render-card">
-                      <img src={assetUrl('/images/featured-render-mgzd.png')} alt="山海传说七星连珠渲染海报" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/featured-render-mgzd.png')} alt="山海传说七星连珠渲染海报" />
                     </figure>
                   </div>
                   <div className="overview-gameplay-strip" aria-label="五项核心玩法">
                     {shanhaiGameplayShowcase.map((item) => (
-                      <figure key={item.src}><img src={item.src} alt={`山海传说核心玩法：${item.label}`} /></figure>
+                      <figure key={item.src}><img loading="lazy" decoding="async" src={item.src} alt={`山海传说核心玩法：${item.label}`} /></figure>
                     ))}
                   </div>
                 </div>
@@ -2128,12 +2131,12 @@ function App() {
               </article>
 
               <button className="bento-portrait-tile bento-portrait-pink" type="button" onClick={() => navigateWithComicWipe('top')}>
-                <img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" />
+                <img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" />
                 <span>个人主页</span>
               </button>
 
               <button className="bento-portrait-tile bento-portrait-male" type="button" onClick={() => navigateWithComicWipe('games')}>
-                <img src={assetUrl('/images/q-avatar-male-bust.png')} alt="白发持剑男性角色头像" />
+                <img loading="lazy" decoding="async" src={assetUrl('/images/q-avatar-male-bust.png')} alt="白发持剑男性角色头像" />
                 <span>游戏经历</span>
               </button>
 
@@ -2149,7 +2152,7 @@ function App() {
               </article>
 
               <button className="bento-project-tile" type="button" onClick={() => setModalProject(featuredProject)}>
-                <img key={featuredProject.id} src={featuredProject.heroImage} alt={`${featuredProject.title}代表项目缩略图`} style={{ objectPosition: featuredProject.heroPosition }} />
+                <img loading="lazy" decoding="async" key={featuredProject.id} src={featuredProject.heroImage} alt={`${featuredProject.title}代表项目缩略图`} style={{ objectPosition: featuredProject.heroPosition }} />
                 <span>代表项目</span>
               </button>
 
@@ -2160,9 +2163,9 @@ function App() {
 
             <footer className="bento-contact-dock">
               <div className="bento-party-avatars" aria-label="山海角色小队">
-                <img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="" />
-                <img src={assetUrl('/images/q-avatar-male-bust.png')} alt="" />
-                <img src={assetUrl('/images/profile-avatar-comic.webp')} alt="" />
+                <img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="" />
+                <img loading="lazy" decoding="async" src={assetUrl('/images/q-avatar-male-bust.png')} alt="" />
+                <img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-comic.webp')} alt="" />
                 <span>组队中</span>
               </div>
               <div className="bento-contact-actions" aria-label="联系入口">
@@ -2278,7 +2281,7 @@ function App() {
                   </div>
                 </div>
                 <figure className="contact-self-avatar">
-                  <img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的个人头像" />
+                  <img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的个人头像" />
                 </figure>
               </section>
               <div className="contact-methods" aria-label="联系方式">
@@ -2305,10 +2308,10 @@ function App() {
                   </span>
                   <span className="contact-wechat-visual">
                     <span className="contact-wechat-profile" aria-hidden="true">
-                      <img src={assetUrl('/images/contact-wechat-qr.jpg')} alt="" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/contact-wechat-qr.jpg')} alt="" />
                     </span>
                     <span className="contact-wechat-qr">
-                      <img src={assetUrl('/images/contact-wechat-qr.jpg')} alt="孔泽轩的微信二维码" />
+                      <img loading="lazy" decoding="async" src={assetUrl('/images/contact-wechat-qr.jpg')} alt="孔泽轩的微信二维码" />
                     </span>
                   </span>
                 </article>
@@ -2326,7 +2329,7 @@ function App() {
       {lightbox && (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={lightbox.alt} onMouseDown={() => setLightbox(null)}>
           <button type="button" className="icon-button" onClick={() => setLightbox(null)} aria-label="关闭图片"><X /></button>
-          <img src={lightbox.src} alt={lightbox.alt} onMouseDown={(event) => event.stopPropagation()} />
+          <img loading="lazy" decoding="async" src={lightbox.src} alt={lightbox.alt} onMouseDown={(event) => event.stopPropagation()} />
           <span>{lightbox.label}</span>
         </div>
       )}
