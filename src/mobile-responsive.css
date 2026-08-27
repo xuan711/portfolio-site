@@ -154,10 +154,18 @@
   }
 
   .page-top .bento-comic-home .bento-card-character {
-    right: -12%;
-    bottom: 9%;
-    height: 40%;
-    opacity: .78;
+    top: auto;
+    right: -6%;
+    bottom: 74px;
+    z-index: 2;
+    width: auto;
+    height: 39%;
+    max-width: none;
+    object-fit: contain;
+    object-position: right bottom;
+    opacity: .88;
+    -webkit-mask-image: none;
+    mask-image: none;
     pointer-events: none;
   }
 
