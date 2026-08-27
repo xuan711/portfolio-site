@@ -1746,7 +1746,7 @@ function App() {
             <nav className="home-toolbar-nav" aria-label="全站快捷入口">
               <button type="button" onClick={() => navigate('top')}><Compass /><span>个人主页</span></button>
               <button className={['works', 'gallery', 'capabilities', 'games', 'lab'].includes(activeSection) ? 'is-active' : ''} type="button" onClick={() => navigate('works')}><Layers3 /><span>作品展示</span></button>
-              <a href="/files/kong-zexuan-system-designer-resume.pdf" download><Download /><span>简历下载</span></a>
+              <a href={assetUrl('/files/kong-zexuan-system-designer-resume.pdf')} download="孔泽轩系统策划简历.pdf"><Download /><span>简历下载</span></a>
               <button className={activeSection === 'contact' ? 'is-active' : ''} type="button" onClick={() => navigate('contact')}><Mail /><span>联系方式</span></button>
             </nav>
             <button className="home-toolbar-logo" type="button" onClick={() => navigate('works')} aria-label="查看山海传说项目作品">
@@ -2024,7 +2024,7 @@ function App() {
                 <nav className="home-toolbar-nav" aria-label="首页快捷入口">
                   <button className="is-active" type="button" onClick={() => navigateWithComicWipe('top')}><Compass /><span>个人主页</span></button>
                   <button type="button" onClick={startExplore}><Layers3 /><span>作品展示</span></button>
-                  <a href="/files/kong-zexuan-system-designer-resume.pdf" download><Download /><span>简历下载</span></a>
+                  <a href={assetUrl('/files/kong-zexuan-system-designer-resume.pdf')} download="孔泽轩系统策划简历.pdf"><Download /><span>简历下载</span></a>
                   <button type="button" onClick={() => navigateWithComicWipe('contact')}><Mail /><span>联系方式</span></button>
                 </nav>
                 <button className="home-toolbar-logo" type="button" onClick={startExplore} aria-label="查看山海传说项目作品">
