@@ -456,10 +456,12 @@
 /* Contact page: readable paper-surface cards with direct phone, mail and WeChat access. */
 .site-shell.page-contact .contact-section {
   overflow: visible;
+  padding-top: 100px;
+  padding-bottom: 64px;
 }
 
 .site-shell.page-contact .contact-inner {
-  min-height: calc(100svh - 212px);
+  min-height: calc(100svh - 164px);
   padding: 0;
 }
 
@@ -470,9 +472,99 @@
 
 .site-shell.page-contact .contact-main {
   width: 100%;
-  margin: auto;
+  margin: 10px auto 0;
   display: grid;
-  place-items: center;
+  place-items: stretch center;
+  gap: 16px;
+}
+
+.site-shell.page-contact .contact-footer {
+  margin-top: auto;
+}
+
+.contact-self-card {
+  position: relative;
+  width: min(1320px, 100%);
+  min-height: 184px;
+  padding: 30px 28px 22px 34px;
+  border: 1.4px solid rgba(47, 41, 48, .66);
+  border-radius: 12px 9px 13px 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 132px;
+  align-items: center;
+  gap: 30px;
+  color: #2f2930;
+  background:
+    linear-gradient(132deg, rgba(255, 255, 255, .78), rgba(255, 255, 255, .3)),
+    rgba(247, 242, 232, .92);
+  box-shadow: 5px 6px 0 rgba(125, 33, 56, .12), 0 14px 30px rgba(55, 46, 43, .08);
+}
+
+.contact-self-copy {
+  min-width: 0;
+  padding-top: 18px;
+}
+
+.contact-self-kicker {
+  position: absolute;
+  top: 20px;
+  left: 34px;
+  color: #7d2138;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .14em;
+}
+
+.contact-self-copy h3 {
+  margin: 3px 0 20px;
+  color: #2f2930;
+  font-size: clamp(22px, 2.05vw, 32px);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-align: center;
+}
+
+.contact-self-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-self-points p {
+  min-width: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 9px;
+  color: rgba(47, 41, 48, .68);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-self-points strong {
+  color: #557b92;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.contact-self-avatar {
+  width: 126px;
+  height: 126px;
+  margin: 0;
+  justify-self: end;
+  overflow: hidden;
+  border: 2px solid #2f2930;
+  border-radius: 50%;
+  background: #dff4ef;
+  box-shadow: 5px 5px 0 #65cbb4;
+}
+
+.contact-self-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 74% 54%;
+  transform: scale(1.18);
 }
 
 .site-shell.page-contact .contact-main .micro-label {
@@ -506,7 +598,7 @@
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 18px;
   width: min(1320px, 100%);
-  min-height: clamp(430px, 52vh, 520px);
+  min-height: clamp(350px, 42vh, 410px);
   margin: 0 auto;
 }
 
@@ -593,11 +685,11 @@ a.contact-method-card:focus-visible {
 .contact-wechat-card {
   grid-column: 2;
   grid-row: 1 / 3;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, .9fr);
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  align-items: stretch;
-  gap: 24px;
-  padding: 28px 28px 28px 36px;
+  place-items: end center;
+  gap: 0;
+  padding: 26px;
   background: #2f5c51;
   color: #fff;
   border-color: #24483f;
@@ -605,8 +697,12 @@ a.contact-method-card:focus-visible {
 }
 
 .contact-wechat-copy {
-  align-self: start;
-  padding-top: 6px;
+  position: absolute;
+  top: 28px;
+  left: 34px;
+  z-index: 2;
+  align-self: auto;
+  padding: 0;
 }
 
 .contact-wechat-card small {
@@ -619,10 +715,10 @@ a.contact-method-card:focus-visible {
 
 .contact-wechat-visual {
   display: grid;
-  grid-template-rows: 72px auto;
-  width: min(250px, 100%);
-  justify-self: end;
-  align-self: center;
+  grid-template-rows: 62px auto;
+  width: min(220px, 100%);
+  justify-self: center;
+  align-self: end;
   overflow: hidden;
   border-radius: 10px;
   background: #fff;
@@ -631,7 +727,7 @@ a.contact-method-card:focus-visible {
 
 .contact-wechat-profile {
   display: block;
-  height: 72px;
+  height: 62px;
   overflow: hidden;
   background: #fff;
 }
@@ -665,6 +761,15 @@ a.contact-method-card:focus-visible {
 }
 
 @media (max-width: 1080px) {
+  .contact-self-card {
+    width: min(720px, 100%);
+  }
+
+  .contact-self-points {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
   .contact-methods {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -675,7 +780,7 @@ a.contact-method-card:focus-visible {
   .contact-wechat-card {
     grid-column: auto;
     grid-row: auto;
-    min-height: 310px;
+    min-height: 380px;
   }
 }
 
@@ -686,6 +791,27 @@ a.contact-method-card:focus-visible {
 
   .site-shell.page-contact .contact-main {
     margin: 46px 0;
+  }
+
+  .contact-self-card {
+    min-height: 0;
+    padding: 20px;
+    grid-template-columns: minmax(0, 1fr) 82px;
+    gap: 16px;
+  }
+
+  .contact-self-copy h3 {
+    font-size: 21px;
+  }
+
+  .contact-self-points p {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .contact-self-avatar {
+    width: 76px;
+    height: 76px;
   }
 
   .site-shell.page-contact .contact-main h2 {
@@ -706,22 +832,22 @@ a.contact-method-card:focus-visible {
   }
 
   .contact-wechat-card {
-    grid-template-columns: minmax(0, 1fr) 148px;
-    min-height: 230px;
+    grid-template-columns: 1fr;
+    min-height: 350px;
     padding: 18px 18px 18px 24px;
   }
 
   .contact-wechat-qr {
-    width: 148px;
+    width: 100%;
   }
 
   .contact-wechat-visual {
-    grid-template-rows: 44px auto;
-    width: 148px;
+    grid-template-rows: 52px auto;
+    width: 190px;
   }
 
   .contact-wechat-profile {
-    height: 44px;
+    height: 52px;
   }
 }
 

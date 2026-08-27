@@ -31,6 +31,8 @@ import {
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
 const navItems = [
   { id: 'works', label: '项目作品' },
   { id: 'gallery', label: '视觉画廊' },
@@ -104,8 +106,8 @@ const projects = [
     eyebrow: '关卡设计 · 副本落地',
     title: '北郡大牢一层',
     subtitle: '在约10分钟的单次流程内，为玩家提供目标清晰、战斗形式有变化、挑战逐步提升且结算反馈明确的副本体验。',
-    image: '/images/beijun-poster.webp',
-    heroImage: '/images/render-clash.webp',
+    image: assetUrl('/images/beijun-poster.webp'),
+    heroImage: assetUrl('/images/render-clash.webp'),
     heroPosition: '52% center',
     video: 'https://1305541330.vod-qcloud.com/1074853bvodcq1305541330/beadd5be5001834818084504338/ce2Y91PGaa4A.mp4',
     meta: ['30 分钟实例', '阶段与区域', '怪物技能', '掉落公式'],
@@ -121,8 +123,8 @@ const projects = [
     eyebrow: '系统设计 · 新手引导',
     title: '七星连珠新手引导',
     subtitle: '通过七座依次开放的空岛，完成移动、装备武器、技能学习与使用、天命印记、身法跨越、武器切换和远程射击教学；同时定义死亡、退出、重登及奖励、传送异常的恢复规则。',
-    image: '/images/tutorial-poster.webp',
-    heroImage: '/images/render-green.webp',
+    image: assetUrl('/images/tutorial-poster.webp'),
+    heroImage: assetUrl('/images/render-green.webp'),
     heroPosition: '57% center',
     video: 'https://1305541330.vod-qcloud.com/e75e72e3vodtranscq1305541330/b32afe045001834818084029459/v.f100040.mp4',
     meta: ['I-01 — I-07', '10 张配置表', '状态恢复', '上线复盘'],
@@ -138,8 +140,8 @@ const projects = [
     eyebrow: '系统策划 · 功能 Demo',
     title: '副本挑战系统',
     subtitle: '副本挑战系统是游戏中的常驻PVE玩法，承接角色养成、战力验证和阶段推进。',
-    image: '/images/render-boss.webp',
-    heroImage: '/images/render-boss.webp',
+    image: assetUrl('/images/render-boss.webp'),
+    heroImage: assetUrl('/images/render-boss.webp'),
     heroPosition: '52% center',
     video: 'https://1305541330.vod-qcloud.com/e75e72e3vodtranscq1305541330/c1713ac55001834818084667434/v.f100800.mp4',
     meta: ['入口规则', '挑战状态', '奖励反馈', '实机验证'],
@@ -173,7 +175,7 @@ const shanhaiSystemPillars = [
     tone: 'gold',
     title: '角色与养成',
     summary: '从身份表达、战斗构筑到数值追求，建立长期角色成长路径。',
-    image: '/images/system-character-user.png',
+    image: assetUrl('/images/system-character-user.png'),
     visualMode: 'render-character',
     visualLabel: '角色构筑',
     items: [
@@ -187,7 +189,7 @@ const shanhaiSystemPillars = [
     tone: 'coral',
     title: '世界与任务',
     summary: '用区域连接、任务目标和玩法入口组织开放世界的探索节奏。',
-    image: '/images/system-world-user.png',
+    image: assetUrl('/images/system-world-user.png'),
     visualMode: 'render-world',
     visualLabel: '世界地图',
     items: [
@@ -201,7 +203,7 @@ const shanhaiSystemPillars = [
     tone: 'blue',
     title: 'PVE 内容',
     summary: '用多类副本、机关演出和战斗对象承接养成结果与阶段挑战。',
-    image: '/images/featured-render-mgzd.png',
+    image: assetUrl('/images/featured-render-mgzd.png'),
     visualMode: 'render-pve',
     visualLabel: '多人副本',
     items: [
@@ -215,7 +217,7 @@ const shanhaiSystemPillars = [
     tone: 'crimson',
     title: '日常与留存',
     summary: '用每日目标、稳定奖励和阶段激励维持上线动机与长期留存。',
-    image: '/images/system-retention-user.png',
+    image: assetUrl('/images/system-retention-user.png'),
     visualMode: 'render-retention',
     visualLabel: '每日目标 · 福利奖励',
     items: [
@@ -229,7 +231,7 @@ const shanhaiSystemPillars = [
     tone: 'teal',
     title: '资源与玩家经济',
     summary: '用玩家交易、资源回收和物品管理维持资源的产出与消耗闭环。',
-    image: '/images/system-economy-user.png',
+    image: assetUrl('/images/system-economy-user.png'),
     visualMode: 'render-economy',
     visualLabel: '装备养成 · 玩家交易',
     items: [
@@ -243,7 +245,7 @@ const shanhaiSystemPillars = [
     tone: 'plum',
     title: '商业化',
     summary: '用商城、抽取兑换和付费权益连接内容消费与项目持续运营。',
-    image: '/images/system-commerce-user.png',
+    image: assetUrl('/images/system-commerce-user.png'),
     visualMode: 'render-commerce',
     visualLabel: '商城与兑换',
     items: [
@@ -267,11 +269,11 @@ const defaultHeroContent = {
 }
 
 const shanhaiGameplayShowcase = [
-  { src: '/images/core-gameplay-demon.png', label: '降妖伏魔' },
-  { src: '/images/core-gameplay-artifact.png', label: '神器养成' },
-  { src: '/images/core-gameplay-escort.png', label: '寻宝押镖' },
-  { src: '/images/core-gameplay-free-career.png', label: '自由职业' },
-  { src: '/images/core-gameplay-temple.png', label: '祖巫神庙' },
+  { src: assetUrl('/images/core-gameplay-demon.png'), label: '降妖伏魔' },
+  { src: assetUrl('/images/core-gameplay-artifact.png'), label: '神器养成' },
+  { src: assetUrl('/images/core-gameplay-escort.png'), label: '寻宝押镖' },
+  { src: assetUrl('/images/core-gameplay-free-career.png'), label: '自由职业' },
+  { src: assetUrl('/images/core-gameplay-temple.png'), label: '祖巫神庙' },
 ]
 
 const heroParticles = Array.from({ length: 34 }, (_, index) => ({
@@ -356,12 +358,12 @@ const gameGenres = [
 ]
 
 const gallery = [
-  { src: '/images/render-clash.webp', alt: '红蓝对抗场景渲染图', label: '北郡战斗场景' },
-  { src: '/images/render-green.webp', alt: '绿色战场角色渲染图', label: '角色与场景氛围' },
-  { src: '/images/render-boss.webp', alt: '祖巫神庙 Boss 渲染图', label: 'Boss 玩法主题' },
-  { src: '/images/render-fire.webp', alt: '火焰 Boss 渲染图', label: 'Boss 视觉包装' },
-  { src: '/images/render-chi-you.webp', alt: '蚩尤角色渲染图', label: '角色与世界观' },
-  { src: '/images/beijun-poster.webp', alt: '北郡大牢关卡展示图', label: '关卡设计证据' },
+  { src: assetUrl('/images/render-clash.webp'), alt: '红蓝对抗场景渲染图', label: '北郡战斗场景' },
+  { src: assetUrl('/images/render-green.webp'), alt: '绿色战场角色渲染图', label: '角色与场景氛围' },
+  { src: assetUrl('/images/render-boss.webp'), alt: '祖巫神庙 Boss 渲染图', label: 'Boss 玩法主题' },
+  { src: assetUrl('/images/render-fire.webp'), alt: '火焰 Boss 渲染图', label: 'Boss 视觉包装' },
+  { src: assetUrl('/images/render-chi-you.webp'), alt: '蚩尤角色渲染图', label: '角色与世界观' },
+  { src: assetUrl('/images/beijun-poster.webp'), alt: '北郡大牢关卡展示图', label: '关卡设计证据' },
 ]
 
 function formatNumber(value, metric) {
@@ -751,7 +753,7 @@ function BeijunCaseStudy({ onPlay, onOpenImage }) {
           </div>
         </div>
         <button type="button" className="case-hero-media" onClick={() => onPlay(project)} aria-label="播放北郡大牢一层实机演示">
-          <img src="/images/beijun-poster.webp" alt="北郡大牢一层实机画面" />
+          <img src={assetUrl('/images/beijun-poster.webp')} alt="北郡大牢一层实机画面" />
           <span className="case-video-badge"><Play fill="currentColor" />实机演示 · 07:08</span>
           <span className="case-media-note">线上版本实录</span>
         </button>
@@ -769,7 +771,7 @@ function BeijunCaseStudy({ onPlay, onOpenImage }) {
           <section><small>交付标准</small><h3>配置、提示、验收一体化</h3><p>每个区域都写清目标、触发、阻挡、反馈与异常处理，便于开发接入和测试复现。</p></section>
         </div>
         <EvidenceFrame
-          src="/images/beijun-case/positioning-export.png"
+          src={assetUrl('/images/beijun-case/positioning-export.png')}
           alt="北郡大牢一层关卡定位策划表"
           caption="策划案原页 · 关卡定位与体验目标"
           onOpen={onOpenImage}
@@ -797,8 +799,8 @@ function BeijunCaseStudy({ onPlay, onOpenImage }) {
           <section><b>可配置</b><p>把触发器、敌人组、交互物、奖励与结算拆成独立数据，支持后续调优。</p></section>
         </div>
         <div className="case-evidence-pair">
-          <EvidenceFrame src="/images/beijun-case/layout-export.png" alt="北郡大牢一层概念布局图" caption="概念布局 · 区域与投放关系" onOpen={onOpenImage} />
-          <EvidenceFrame src="/images/beijun-case/pacing-curve-export.png" alt="北郡大牢一层挑战强度曲线" caption="关卡节奏 · 空间推进与挑战曲线" onOpen={onOpenImage} />
+          <EvidenceFrame src={assetUrl('/images/beijun-case/layout-export.png')} alt="北郡大牢一层概念布局图" caption="概念布局 · 区域与投放关系" onOpen={onOpenImage} />
+          <EvidenceFrame src={assetUrl('/images/beijun-case/pacing-curve-export.png')} alt="北郡大牢一层挑战强度曲线" caption="关卡节奏 · 空间推进与挑战曲线" onOpen={onOpenImage} />
         </div>
       </article>
 
@@ -814,7 +816,7 @@ function BeijunCaseStudy({ onPlay, onOpenImage }) {
           <div><b>6—10′</b><span>厨房与 Boss</span><p>连续战斗升压，在震天吼战形成高潮。</p></div>
           <div><b>5 → 1</b><span>结算释放</span><p>宝箱、任务反馈和离场闭合体验。</p></div>
         </div>
-        <EvidenceFrame src="/images/beijun-case/pacing-table-export.png" alt="北郡大牢一层关卡节奏与心流模拟表" caption="节奏模拟 · 时间、事件与挑战曲线" onOpen={onOpenImage} className="case-evidence-pacing" />
+        <EvidenceFrame src={assetUrl('/images/beijun-case/pacing-table-export.png')} alt="北郡大牢一层关卡节奏与心流模拟表" caption="节奏模拟 · 时间、事件与挑战曲线" onOpen={onOpenImage} className="case-evidence-pacing" />
       </article>
 
       <article className="case-slide case-proof-slide">
@@ -830,7 +832,7 @@ function BeijunCaseStudy({ onPlay, onOpenImage }) {
           </div>
           <button type="button" className="case-primary-action" onClick={() => onPlay(project)}><Play fill="currentColor" />查看完整实机演示</button>
         </div>
-        <EvidenceFrame src="/images/beijun-case/testing-export.png" alt="北郡大牢一层实机自测清单" caption="验收记录 · 实机自测清单" onOpen={onOpenImage} className="case-evidence-testing" />
+        <EvidenceFrame src={assetUrl('/images/beijun-case/testing-export.png')} alt="北郡大牢一层实机自测清单" caption="验收记录 · 实机自测清单" onOpen={onOpenImage} className="case-evidence-testing" />
       </article>
 
       <footer className="case-next-project">
@@ -847,7 +849,7 @@ const caseStudyContent = {
     title: '北郡大牢一层',
     hook: '在约10分钟的单次流程内，为玩家提供目标清晰、战斗形式有变化、挑战逐步提升且结算反馈明确的副本体验。',
     summary: '负责关卡定位、整体流程、空间动线、机关交互、怪物配置、节奏模拟、实机自测与美术资源需求，并将方案推进至可游玩的线上版本。',
-    poster: '/images/beijun-poster-clean.png',
+    poster: assetUrl('/images/beijun-poster-clean.png'),
     mediaNote: '线上版本实录',
     stats: [['10级', '开放等级'], ['1—5人', '支持单人'], ['约10分钟', '目标体验'], ['震天吼', '最终 Boss']],
     pages: [
@@ -861,7 +863,7 @@ const caseStudyContent = {
           ['交付标准', '配置、提示、验收一体化', '每个区域写清目标、触发、阻挡、反馈与异常处理，便于开发接入和测试复现。'],
         ],
         evidence: [{
-          src: '/images/beijun-case/positioning-table-user.png',
+          src: assetUrl('/images/beijun-case/positioning-table-user.png'),
           caption: '关卡定位 · 项目需求与体验目标',
         }],
       },
@@ -877,11 +879,11 @@ const caseStudyContent = {
         ],
         evidence: [
           {
-            src: '/images/beijun-case/layout-user.png',
+            src: assetUrl('/images/beijun-case/layout-user.png'),
             caption: '概念布局 · 区域、门禁与投放关系',
           },
           {
-            src: '/images/beijun-case/spatial-user.png',
+            src: assetUrl('/images/beijun-case/spatial-user.png'),
             caption: '空间动线 · 逐区设计与验收要求',
           },
         ],
@@ -896,7 +898,7 @@ const caseStudyContent = {
           ['6—10′', '厨房与 Boss', '连续战斗升压，在震天吼战形成高潮并结算释放。'],
         ],
         evidence: [{
-          src: '/images/beijun-case/pacing-user.png',
+          src: assetUrl('/images/beijun-case/pacing-user.png'),
           caption: '节奏模拟 · 时间、事件与心流变化',
         }],
       },
@@ -906,7 +908,7 @@ const caseStudyContent = {
         intro: '按目标、敌人刷新、击杀进度、怪物行为、门禁、地图引导、Boss 与结算逐项自测，并根据实机结果回调配置。',
         metrics: [['约 7 分钟', '单次实机自测通关'], ['30 分钟', '副本实例上限'], ['全项通过', '流程与结算检查'], ['线上版本', '真实项目交付']],
         evidence: [{
-          src: '/images/beijun-case/testing-results-user.png',
+          src: assetUrl('/images/beijun-case/testing-results-user.png'),
           caption: '实机验收 · 逐项自测结果',
         }],
       },
@@ -917,7 +919,7 @@ const caseStudyContent = {
     title: '七星连珠新手引导',
     hook: '把七段教学目标组织成\n可恢复、可配置、可验收的入门旅程。',
     summary: '通过七座依次开放的空岛，完成移动、装备武器、技能学习与使用、天命印记、身法跨越、武器切换和远程射击教学；同时定义死亡、退出、重登及奖励、传送异常的恢复规则。',
-    poster: '/images/tutorial-hongshazhidi-render.png',
+    poster: assetUrl('/images/tutorial-hongshazhidi-render.png'),
     mediaNote: '七岛流程实机',
     stats: [['I-01—07', '七段教学'], ['10张', '执行配置表'], ['状态机', '中断可恢复'], ['已上线', '真实版本交付']],
     pages: [
@@ -931,7 +933,7 @@ const caseStudyContent = {
           ['正式衔接', '教学结束即进入主线', '结尾通过对话、奖励与传送，把新手流程平滑接入正式体验。'],
         ],
         evidence: [{
-          src: '/images/tutorial-case/tutorial-i07-flow-ui.png',
+          src: assetUrl('/images/tutorial-case/tutorial-i07-flow-ui.png'),
           caption: '教学闭环 · 状态判定、界面原型与实机反馈',
         }],
       },
@@ -946,7 +948,7 @@ const caseStudyContent = {
           ['Done', '结果、门禁和奖励同步', '阶段完成后写入状态，解除门禁并激活下一目标。'],
         ],
         evidence: [{
-          src: '/images/tutorial-case/tutorial-stages.png',
+          src: assetUrl('/images/tutorial-case/tutorial-stages.png'),
           caption: '阶段总表 · 目标、触发与完成判定',
         }],
       },
@@ -960,7 +962,7 @@ const caseStudyContent = {
           ['测试', '用配置索引定位问题', '每个用例可回查阶段、目标、奖励或场景绑定，降低联调成本。'],
         ],
         evidence: [{
-          src: '/images/tutorial-case/tutorial-resource-delivery-export.png',
+          src: assetUrl('/images/tutorial-case/tutorial-resource-delivery-export.png'),
           caption: '资源交付 · 美术、动画、音频与文本需求',
         }],
       },
@@ -970,7 +972,7 @@ const caseStudyContent = {
         intro: '把错误槽位、无效攻击、中断重登、背包满、掉线重连与传送失败列为高风险路径，并在上线后根据玩家反馈调整成长路线。',
         metrics: [['16项', '基础联调用例'], ['3 / 6', '技能有效击败'], ['6 / 10', '远程有效命中'], ['可恢复', '重登与失败重试']],
         evidence: [{
-          src: '/images/tutorial-case/tutorial-qa-checklist-export.png',
+          src: assetUrl('/images/tutorial-case/tutorial-qa-checklist-export.png'),
           caption: '测试验收 · 主流程与高风险异常清单',
         }],
       },
@@ -981,7 +983,7 @@ const caseStudyContent = {
     title: '副本挑战系统',
     hook: '把入口、难度、队伍、运行与结算\n组织成可复用的 PVE 挑战闭环。',
     summary: '副本挑战系统是游戏中的常驻PVE玩法，承接角色养成、战力验证和阶段推进。',
-    poster: '/images/render-boss.webp',
+    poster: assetUrl('/images/render-boss.webp'),
     mediaNote: '功能原型 Demo',
     stats: [['25档', '难度分层'], ['1—5人', '单人或组队'], ['PVE', '常驻成长玩法'], ['9项P0', '核心功能验收']],
     pages: [
@@ -995,7 +997,7 @@ const caseStudyContent = {
           ['内容复用', '一套地图服务多个阶段', '通过敌人组合、机制和奖励分层延长内容使用周期。'],
         ],
         evidence: [{
-          src: '/images/dungeon-case/dungeon-intent-user.png',
+          src: assetUrl('/images/dungeon-case/dungeon-intent-user.png'),
           caption: '设计概述 · 系统定位、需求与体验目标',
         }],
       },
@@ -1010,7 +1012,7 @@ const caseStudyContent = {
           ['挑战后', '结算只触发一次', '记录成绩、发放个人奖励、生成出口并清理实例。'],
         ],
         evidence: [{
-          src: '/images/dungeon-case/dungeon-entry-overview-export.png',
+          src: assetUrl('/images/dungeon-case/dungeon-entry-overview-export.png'),
           caption: '功能设计总览 · 系统入口与准入规则',
         }],
       },
@@ -1024,7 +1026,7 @@ const caseStudyContent = {
           ['结算', '奖励与清理保持幂等', '重复确认、掉线重进或背包满都不能造成重复发奖。'],
         ],
         evidence: [{
-          src: '/images/dungeon-case/dungeon-rules-delivery-export.png',
+          src: assetUrl('/images/dungeon-case/dungeon-rules-delivery-export.png'),
           caption: '规则交付 · 系统行为、状态反馈与异常处理',
         }],
       },
@@ -1034,7 +1036,7 @@ const caseStudyContent = {
         intro: '围绕开放状态、难度切换、队伍准入、重复请求、创建失败、同时结算、掉线重连与重复奖励建立 P0 验收。',
         metrics: [['9项', '核心验收场景'], ['P0', '全部关键路径'], ['120秒', '掉线保留时间'], ['一次', '唯一结算与发奖']],
         evidence: [{
-          src: '/images/dungeon-case/dungeon-acceptance-checklist.png',
+          src: assetUrl('/images/dungeon-case/dungeon-acceptance-checklist.png'),
           caption: '验收说明 · 核心场景、操作条件与预期结果',
         }],
       },
@@ -1202,10 +1204,10 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
         <button
           type="button"
           className="project-overview-poster"
-          onClick={() => onOpenImage({ src: '/images/shanhai-world-banner.png', alt: '山海传说完整项目主视觉', label: '《山海传说》原创 UGC MMORPG 项目主视觉' })}
+          onClick={() => onOpenImage({ src: assetUrl('/images/shanhai-world-banner.png'), alt: '山海传说完整项目主视觉', label: '《山海传说》原创 UGC MMORPG 项目主视觉' })}
           aria-label="放大查看山海传说项目主视觉"
         >
-          <img src="/images/shanhai-world-banner.png" alt="山海传说完整项目主视觉" />
+          <img src={assetUrl('/images/shanhai-world-banner.png')} alt="山海传说完整项目主视觉" />
           <span><i {...editableRowProps('poster-caption', '主视觉说明', '原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界')}>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界</i><ArrowUpRight /></span>
         </button>
 
@@ -1226,10 +1228,10 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
         <section className="project-theme-feature">
           <button
             type="button"
-            onClick={() => onOpenImage({ src: '/images/project-overview/theme-world.png', alt: '山海传说国风神话世界', label: '主题解读：把山海神话做成可游玩的世界' })}
+            onClick={() => onOpenImage({ src: assetUrl('/images/project-overview/theme-world.png'), alt: '山海传说国风神话世界', label: '主题解读：把山海神话做成可游玩的世界' })}
             aria-label="放大查看山海传说主题世界画面"
           >
-            <img src="/images/project-overview/theme-world.png" alt="山海传说国风神话世界" />
+            <img src={assetUrl('/images/project-overview/theme-world.png')} alt="山海传说国风神话世界" />
             <span>THEME & WORLD<ArrowUpRight /></span>
           </button>
           <div>
@@ -1735,7 +1737,7 @@ function App() {
           </div>
           <header className="portfolio-global-toolbar site-width">
             <button className="home-toolbar-person" type="button" onClick={() => navigate('top')} aria-label="返回孔泽轩的个人主页">
-              <span className="home-toolbar-avatar"><img src="/images/profile-avatar-cartoon.jpg" alt="孔泽轩的卡通头像" /></span>
+              <span className="home-toolbar-avatar"><img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
               <span className="home-toolbar-name"><span className="home-toolbar-name-line"><b>孔泽轩</b><strong>求职中</strong></span><small>求职系统策划 · 2027届</small></span>
             </button>
             <nav className="home-toolbar-nav" aria-label="全站快捷入口">
@@ -1745,12 +1747,12 @@ function App() {
               <button className={activeSection === 'contact' ? 'is-active' : ''} type="button" onClick={() => navigate('contact')}><Mail /><span>联系方式</span></button>
             </nav>
             <button className="home-toolbar-logo" type="button" onClick={() => navigate('works')} aria-label="查看山海传说项目作品">
-              <img src="/images/resources/shanhai-rpg-logo.png" alt="山海传说 RPG" />
+              <img src={assetUrl('/images/resources/shanhai-rpg-logo.png')} alt="山海传说 RPG" />
             </button>
           </header>
           <div className="portfolio-page-margin-label portfolio-page-margin-label-left" aria-hidden="true"><span>KONG ZEXUAN / SYSTEM DESIGN PORTFOLIO</span></div>
           <div className="portfolio-page-margin-label portfolio-page-margin-label-right" aria-hidden="true"><span>{pageFrameMeta[activeSection]}</span></div>
-          <img className="portfolio-page-seal" src="/images/shanhai-paper-seal.png" alt="" aria-hidden="true" />
+          <img className="portfolio-page-seal" src={assetUrl('/images/shanhai-paper-seal.png')} alt="" aria-hidden="true" />
         </>
       )}
 
@@ -1760,7 +1762,7 @@ function App() {
             <div className="desk-spotlight" aria-hidden="true" />
             <div className="desk-scroll desk-prop" aria-hidden="true"><i /><i /><span>山海志</span></div>
             <div className="desk-notes desk-prop" aria-hidden="true"><i /><b>关卡草图</b><span>入口 → 引导 → 验收</span></div>
-            <div className="desk-frame desk-prop" aria-hidden="true"><img src="/images/render-green.webp" alt="" /></div>
+            <div className="desk-frame desk-prop" aria-hidden="true"><img src={assetUrl('/images/render-green.webp')} alt="" /></div>
             <div className="desk-cubes desk-prop" aria-hidden="true"><i /><i /><i /></div>
 
             <div className={`portfolio-book ${bookOpen ? 'is-open' : 'is-closed'} ${pageTurning ? 'is-turning' : ''}`}>
@@ -1784,7 +1786,7 @@ function App() {
                     <div className="page-character-profile">
                       <span className="page-chapter">个人页</span>
                       <div className="character-rune" aria-hidden="true" />
-                      <img src="/images/client-hero-character.webp" alt="山海传说持剑角色" />
+                      <img src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
                       <strong className="physical-status-stamp">求职中</strong>
                       <p>以规则构建体验<br />用文档推动落地</p>
                     </div>
@@ -1811,7 +1813,7 @@ function App() {
                   {bookSection === 'capabilities' && (
                     <div className="page-illustrated-index">
                       <span className="page-chapter">策划能力</span>
-                      <img src="/images/render-boss.webp" alt="山海传说战斗场景" />
+                      <img src={assetUrl('/images/render-boss.webp')} alt="山海传说战斗场景" />
                       <div className="index-seal">策</div>
                       <p>从设计意图到验收结果<br />建立可沟通、可配置、可追踪的证据链。</p>
                     </div>
@@ -1820,7 +1822,7 @@ function App() {
                   {bookSection === 'games' && (
                     <div className="page-illustrated-index">
                       <span className="page-chapter">游戏经历</span>
-                      <img src="/images/render-green.webp" alt="山海传说世界场景" />
+                      <img src={assetUrl('/images/render-green.webp')} alt="山海传说世界场景" />
                       <div className="index-seal">游</div>
                       <p>以玩家体验建立品类坐标<br />再从系统设计视角拆解规则与反馈。</p>
                     </div>
@@ -1829,7 +1831,7 @@ function App() {
                   {bookSection === 'lab' && (
                     <div className="page-illustrated-index document-illustration">
                       <span className="page-chapter">策划文档</span>
-                      <img src="/images/beijun-poster.webp" alt="北郡大牢系统策划文档预览" />
+                      <img src={assetUrl('/images/beijun-poster.webp')} alt="北郡大牢系统策划文档预览" />
                       <div className="index-seal">案</div>
                       <p>策划案、配表、流程图与实机验证<br />均可在网页内继续阅读。</p>
                     </div>
@@ -1959,7 +1961,7 @@ function App() {
                   <p>{featuredProject.eyebrow}</p>
                 </div>
 
-                <img className="magazine-foreground-character" src="/images/client-hero-character.webp" alt="山海传说持剑角色" />
+                <img className="magazine-foreground-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
 
                 <footer className="magazine-identity-strip">
                   <div><span>求职方向</span><h2>游戏系统策划</h2></div>
@@ -2009,11 +2011,11 @@ function App() {
           <div className="home-section-band home-section-band-project" aria-hidden="true" />
           <div className="home-margin-label home-margin-label-left" aria-hidden="true"><span>KONG ZEXUAN / SYSTEM DESIGN PORTFOLIO</span></div>
           <div className="home-margin-label home-margin-label-right" aria-hidden="true"><span>FEATURED PROJECT / 01</span></div>
-          <img className="home-margin-seal" src="/images/shanhai-paper-seal.png" alt="" aria-hidden="true" />
+          <img className="home-margin-seal" src={assetUrl('/images/shanhai-paper-seal.png')} alt="" aria-hidden="true" />
           <div className="bento-comic-shell site-width">
               <header className="home-personal-toolbar">
                 <button className="home-toolbar-person" type="button" onClick={() => navigateWithComicWipe('top')} aria-label="返回孔泽轩的个人主页">
-                  <span className="home-toolbar-avatar"><img src="/images/profile-avatar-cartoon.jpg" alt="孔泽轩的卡通头像" /></span>
+                  <span className="home-toolbar-avatar"><img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
                   <span className="home-toolbar-name"><span className="home-toolbar-name-line"><b>孔泽轩</b><strong>求职中</strong></span><small>求职系统策划 · 2027届</small></span>
                 </button>
                 <nav className="home-toolbar-nav" aria-label="首页快捷入口">
@@ -2023,7 +2025,7 @@ function App() {
                   <button type="button" onClick={() => navigateWithComicWipe('contact')}><Mail /><span>联系方式</span></button>
                 </nav>
                 <button className="home-toolbar-logo" type="button" onClick={startExplore} aria-label="查看山海传说项目作品">
-                  <img src="/images/resources/shanhai-rpg-logo.png" alt="山海传说 RPG" />
+                  <img src={assetUrl('/images/resources/shanhai-rpg-logo.png')} alt="山海传说 RPG" />
                 </button>
               </header>
 
@@ -2049,7 +2051,7 @@ function App() {
                   <button className="hero-explore-button" type="button" onClick={startExplore}>
                     <span><b>开始探索</b><small>查看项目完整作品集</small></span><ArrowRight />
                   </button>
-                  <img className="bento-card-character" src="/images/client-hero-character.webp" alt="山海传说持剑角色" />
+                  <img className="bento-card-character" src={assetUrl('/images/client-hero-character.webp')} alt="山海传说持剑角色" />
                   <button className="bento-hero-editor-toggle" type="button" onClick={() => setHeroEditorOpen(true)} aria-label="编辑首页主视觉文案" title="编辑首页主视觉文案"><Settings2 /><span>编辑内容</span></button>
                 </article>
               </div>
@@ -2057,7 +2059,7 @@ function App() {
               <section className="home-portfolio-overview" aria-label="作品集概览">
                 <article className="overview-info-card overview-project-contribution">
                   <header className="overview-project-identity">
-                    <img src="/images/shanhai-vertical-logo.png" alt="" />
+                    <img src={assetUrl('/images/shanhai-vertical-logo.png')} alt="" />
                     <div><b>山海传说</b><span>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界</span></div>
                   </header>
                   <h2>项目背景与个人贡献</h2>
@@ -2072,13 +2074,13 @@ function App() {
                 <div className="overview-project-showcase" aria-label="山海传说项目规模与核心玩法">
                   <div className="overview-showcase-visual-row">
                     <figure className="overview-world-poster">
-                      <img src="/images/shanhai-world-banner.png" alt="山海传说完整角色阵容宣传图" />
+                      <img src={assetUrl('/images/shanhai-world-banner.png')} alt="山海传说完整角色阵容宣传图" />
                     </figure>
                     <figure className="overview-render-card">
-                      <img src="/images/featured-render-wer.png" alt="山海传说赤焰首领战渲染海报" />
+                      <img src={assetUrl('/images/featured-render-wer.png')} alt="山海传说赤焰首领战渲染海报" />
                     </figure>
                     <figure className="overview-render-card">
-                      <img src="/images/featured-render-mgzd.png" alt="山海传说七星连珠渲染海报" />
+                      <img src={assetUrl('/images/featured-render-mgzd.png')} alt="山海传说七星连珠渲染海报" />
                     </figure>
                   </div>
                   <div className="overview-gameplay-strip" aria-label="五项核心玩法">
@@ -2126,12 +2128,12 @@ function App() {
               </article>
 
               <button className="bento-portrait-tile bento-portrait-pink" type="button" onClick={() => navigateWithComicWipe('top')}>
-                <img src="/images/profile-avatar-cartoon.jpg" alt="孔泽轩的卡通头像" />
+                <img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" />
                 <span>个人主页</span>
               </button>
 
               <button className="bento-portrait-tile bento-portrait-male" type="button" onClick={() => navigateWithComicWipe('games')}>
-                <img src="/images/q-avatar-male-bust.png" alt="白发持剑男性角色头像" />
+                <img src={assetUrl('/images/q-avatar-male-bust.png')} alt="白发持剑男性角色头像" />
                 <span>游戏经历</span>
               </button>
 
@@ -2158,9 +2160,9 @@ function App() {
 
             <footer className="bento-contact-dock">
               <div className="bento-party-avatars" aria-label="山海角色小队">
-                <img src="/images/profile-avatar-cartoon.jpg" alt="" />
-                <img src="/images/q-avatar-male-bust.png" alt="" />
-                <img src="/images/profile-avatar-comic.webp" alt="" />
+                <img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="" />
+                <img src={assetUrl('/images/q-avatar-male-bust.png')} alt="" />
+                <img src={assetUrl('/images/profile-avatar-comic.webp')} alt="" />
                 <span>组队中</span>
               </div>
               <div className="bento-contact-actions" aria-label="联系入口">
@@ -2266,6 +2268,19 @@ function App() {
           <div className="site-width contact-inner">
             <div className="contact-top"><span>KZX · 2027</span><span>GAME SYSTEM DESIGN</span></div>
             <div className="contact-main">
+              <section className="contact-self-card" aria-labelledby="contact-self-title">
+                <div className="contact-self-copy">
+                  <span className="contact-self-kicker">SELF REVIEW · 自我评价</span>
+                  <h3 id="contact-self-title">理解游戏，也把想法推进到落地。</h3>
+                  <div className="contact-self-points">
+                    <p><strong>游戏理解</strong><span>热爱游戏，习惯从玩家与策划角度分析玩法、系统与关卡。</span></p>
+                    <p><strong>协作落地</strong><span>有5人线上创业项目经验，能将想法落地成文档、流程图、原型和配置表并跟进实现。</span></p>
+                  </div>
+                </div>
+                <figure className="contact-self-avatar">
+                  <img src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的个人头像" />
+                </figure>
+              </section>
               <div className="contact-methods" aria-label="联系方式">
                 <a className="contact-method-card" href="tel:15110397617">
                   <span className="contact-method-icon"><Phone aria-hidden="true" /></span>
@@ -2290,10 +2305,10 @@ function App() {
                   </span>
                   <span className="contact-wechat-visual">
                     <span className="contact-wechat-profile" aria-hidden="true">
-                      <img src="/images/contact-wechat-qr.jpg" alt="" />
+                      <img src={assetUrl('/images/contact-wechat-qr.jpg')} alt="" />
                     </span>
                     <span className="contact-wechat-qr">
-                      <img src="/images/contact-wechat-qr.jpg" alt="孔泽轩的微信二维码" />
+                      <img src={assetUrl('/images/contact-wechat-qr.jpg')} alt="孔泽轩的微信二维码" />
                     </span>
                   </span>
                 </article>
