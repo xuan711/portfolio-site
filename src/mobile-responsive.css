@@ -1,4 +1,8 @@
 /* Mobile-only finishing layer. Desktop and tablet layouts remain unchanged. */
+.home-toolbar-character {
+  display: none;
+}
+
 @media (max-width: 760px) {
   :root {
     --mobile-page-pad: 14px;
@@ -71,6 +75,28 @@
     width: 100%;
   }
 
+  .page-top .home-toolbar-person {
+    position: relative;
+    z-index: 2;
+    padding-right: 108px;
+  }
+
+  .page-top .home-toolbar-character {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    z-index: 1;
+    display: block;
+    width: 118px;
+    height: 68px;
+    max-width: none;
+    object-fit: contain;
+    object-position: center top;
+    opacity: .9;
+    filter: drop-shadow(0 4px 5px rgba(47, 41, 48, .18));
+    pointer-events: none;
+  }
+
   .page-top .home-toolbar-avatar,
   .portfolio-global-toolbar .home-toolbar-avatar {
     width: 44px;
@@ -90,6 +116,7 @@
 
   .page-top .home-toolbar-nav,
   .portfolio-global-toolbar .home-toolbar-nav {
+    z-index: 2;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 5px;
   }
@@ -154,19 +181,7 @@
   }
 
   .page-top .bento-comic-home .bento-card-character {
-    top: auto;
-    right: -6%;
-    bottom: 74px;
-    z-index: 2;
-    width: auto;
-    height: 39%;
-    max-width: none;
-    object-fit: contain;
-    object-position: right bottom;
-    opacity: .88;
-    -webkit-mask-image: none;
-    mask-image: none;
-    pointer-events: none;
+    display: none;
   }
 
   .page-top .hero-explore-button {

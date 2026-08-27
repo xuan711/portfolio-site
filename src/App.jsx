@@ -2021,6 +2021,7 @@ function App() {
                   <span className="home-toolbar-avatar"><img loading="lazy" decoding="async" src={assetUrl('/images/profile-avatar-cartoon.jpg')} alt="孔泽轩的卡通头像" /></span>
                   <span className="home-toolbar-name"><span className="home-toolbar-name-line"><b>孔泽轩</b><strong>求职中</strong></span><small>求职系统策划 · 2027届</small></span>
                 </button>
+                <img className="home-toolbar-character" src={assetUrl('/images/client-hero-character.webp')} alt="" aria-hidden="true" decoding="async" />
                 <nav className="home-toolbar-nav" aria-label="首页快捷入口">
                   <button className="is-active" type="button" onClick={() => navigateWithComicWipe('top')}><Compass /><span>个人主页</span></button>
                   <button type="button" onClick={startExplore}><Layers3 /><span>作品展示</span></button>
