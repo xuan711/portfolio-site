@@ -107,22 +107,28 @@
   .page-top .home-toolbar-person {
     position: relative;
     z-index: 2;
-    padding-right: 138px;
+    padding-right: 152px;
   }
 
   .page-top .home-toolbar-character {
     position: absolute;
-    top: 0;
-    right: 6px;
+    top: -2px;
+    right: 0;
     z-index: 1;
     display: block;
-    width: 150px;
-    height: 84px;
+    width: 180px;
+    height: 96px;
     max-width: none;
-    object-fit: contain;
-    object-position: right top;
-    opacity: .96;
-    filter: drop-shadow(0 4px 5px rgba(47, 41, 48, .18));
+    object-fit: cover;
+    object-position: center 54%;
+    opacity: 1;
+    filter:
+      drop-shadow(2px 0 0 #fff8ec)
+      drop-shadow(-2px 0 0 #fff8ec)
+      drop-shadow(0 2px 0 #fff8ec)
+      drop-shadow(0 -2px 0 #fff8ec)
+      drop-shadow(3px 4px 0 #7d2138)
+      drop-shadow(0 6px 7px rgba(47, 41, 48, .2));
     pointer-events: none;
   }
 
@@ -186,15 +192,24 @@
   .page-top .bento-comic-home .bento-intro-grid,
   .page-top .bento-comic-home .bento-character-card {
     height: auto;
-    min-height: 650px;
+    min-height: 0;
+  }
+
+  .page-top .bento-comic-home .bento-character-card {
+    display: flex;
+    flex-direction: column;
   }
 
   .page-top .bento-comic-home .bento-character-copy.vertical-center,
   .page-top .bento-comic-home .bento-character-copy.vertical-center.width-standard {
-    top: 22px;
-    left: 18px;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
     z-index: 5;
-    width: calc(100% - 36px);
+    width: auto;
+    margin: 22px 18px 0;
     transform: none;
   }
 
@@ -220,11 +235,13 @@
   }
 
   .page-top .hero-explore-button {
-    right: 16px;
-    bottom: 16px;
-    left: 16px;
-    width: auto;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: calc(100% - 32px);
     min-height: 56px;
+    margin: 24px 16px 16px;
   }
 
   .page-top .bento-comic-home .home-portfolio-overview.representative-project-section {
@@ -859,7 +876,7 @@
 
   .page-top .bento-comic-home .bento-intro-grid,
   .page-top .bento-comic-home .bento-character-card {
-    min-height: 650px;
+    min-height: 0;
   }
 
   .page-top .bento-comic-home .bento-character-copy h1 {

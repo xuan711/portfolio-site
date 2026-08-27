@@ -194,8 +194,8 @@
   }
 
   .page-top .bento-comic-home .hero-tool-grid {
-    grid-template-columns: 70px minmax(0, 1fr);
-    gap: 4px 5px;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 4px 8px;
   }
 
   .page-top .bento-comic-home .hero-tool-item {
