@@ -1256,7 +1256,7 @@ function ProjectOverview({ sectionDomId, onSelectProject, onOpenImage, onEditMod
           aria-label="放大查看山海传说项目主视觉"
         >
           <img loading="eager" decoding="async" fetchPriority="high" src={assetUrl('/images/shanhai-world-banner.webp')} alt="山海传说完整项目主视觉" />
-          <span><i {...editableRowProps('poster-caption', '主视觉说明', '原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界')}>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界</i><ArrowUpRight /></span>
+          <span><i {...editableRowProps('poster-caption', '主视觉说明', '原创 UGC 商业项目 · 国风神话题材 · MMORPG · 大世界')}>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 大世界</i><ArrowUpRight /></span>
         </button>
 
         <div className="project-overview-metrics" aria-label="项目规模与上线成绩">
@@ -2113,7 +2113,7 @@ function App() {
                 <article className="overview-info-card overview-project-contribution">
                   <header className="overview-project-identity">
                     <img loading="lazy" decoding="async" src={assetUrl('/images/shanhai-vertical-logo.png')} alt="" />
-                    <div><b>山海传说</b><span>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 开放世界</span></div>
+                    <div><b>山海传说</b><span>原创 UGC 商业项目 · 国风神话题材 · MMORPG · 大世界</span></div>
                   </header>
                   <h2>项目背景与个人贡献</h2>
                   <div className="overview-contribution-copy">
