@@ -230,7 +230,8 @@
 
   /* Keep the hero artwork clear of the capability copy on desktop. */
   .page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-card-character {
-    right: -10%;
+    right: -1%;
+    height: 140%;
   }
 
   .page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-character-copy > span {
