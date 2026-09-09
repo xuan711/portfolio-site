@@ -151,13 +151,12 @@
   }
 
   .page-top .bento-comic-home .bento-character-copy.vertical-center.width-standard {
-    z-index: 6;
-    width: 52%;
+    width: 54%;
   }
 
   .page-top .bento-comic-home .bento-card-character {
-    right: -7%;
-    height: 130%;
+    right: -8%;
+    height: 137%;
   }
 
   .page-top .bento-comic-home .bento-comic-shell .home-cover-board > .home-portfolio-overview {
