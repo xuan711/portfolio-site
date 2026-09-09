@@ -228,13 +228,9 @@
     transform: none;
   }
 
-  .page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-character-copy.vertical-center.width-standard {
-    width: 44%;
-  }
-
   /* Keep the hero artwork clear of the capability copy on desktop. */
   .page-top .bento-comic-home .bento-comic-shell .home-cover-board .bento-card-character {
-    right: 0;
+    right: -5%;
     height: 132%;
   }
 
